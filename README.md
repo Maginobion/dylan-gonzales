@@ -1,3 +1,6 @@
+# nuxt-portfolio
+V2 of my portfolio, made with Nuxt 3.
+
 # Nuxt 3 Minimal Starter
 
 Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
