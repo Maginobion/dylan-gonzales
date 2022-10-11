@@ -1,8 +1,7 @@
 <template>
-  <button @click="style==='' ? style='dark-mode' : style=''">switcher</button>
+  <button :class="icon" @click="style==='' ? style='dark-mode' : style=''"></button>
   <SideNav/>  
   <NuxtLayout>
-    <p>NO SE PAPU</p>
     <NuxtPage />
   </NuxtLayout>
 </template>
@@ -10,6 +9,10 @@
 <script setup>
 
 const style = ref('dark-mode')
+
+const logic = ref(style.value==='dark-mode' ? 'i-akar-icons:moon-fill' :  'i-clarity:sun-solid')
+
+const icon = ref(logic.value + ' text-3xl')
 
 useHead({
   titleTemplate: (title) => title ? `Maginobion - ${title}` : 'Maginobion',

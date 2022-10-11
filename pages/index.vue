@@ -1,87 +1,90 @@
 <template>
   <div>
-  <div class="made mt-[50px]">
-      <p>This site was made with Nuxt</p> 
-      <x-fab-laravel class="lv-icon"/>
-  </div>
-  <div id="app">
-      <Presentation/>
-  </div>
-  <section class="nameContainer flex-center space-x-14 pt-[100px] flex-wrap-reverse">
-      <div class='w-[600px]'>
-          <div class="flex items-center">
-              <img src="~/assets/svg/myName.svg" class="svg"/>
-              <p class="subTitle">Frontend Developer</p>
-          </div>
-          <p class="mt-4">
-              Estudiante de universidad de cuarto año.
-              Dispuesto a aprender nuevas tecnologías.
-              Ávido lector y amante de los lenguajes
-              naturales y de programación.
-          </p>
-      </div>
-      <img src="~/assets/img/selfie.webp" alt="Image"/>            
-  </section> 
-  <section class="flex flex-col items-center mt-16">
-      <div class="headTitle">Tecnologías</div>
-      <div class="flex justify-center space-x-10 mt-4 mb-16 flex-wrap gap-y-8">
-          <div class="flex items-center space-x-4">
-              <x-icomoon-html-five class="techSize"/>
-              <p>HTML5</p>
-          </div>   
-          <div class="flex items-center space-x-4">
-              <x-si-css3 class="techSize"/> 
-              <p>CSS3</p>
-          </div>                  
-          <div class="flex items-center space-x-4">
-              <x-bxl-tailwind-css class="techSize"/>
-              <p>Tailwind CSS</p>
-          </div>
-          <div class="flex items-center space-x-4">
-              <x-si-javascript class="techSize"/>
-              <p>Javascript</p>
-          </div>
-          <div class="flex items-center space-x-4">
-              <x-fab-laravel class="techSize"/>
-              <p>Laravel</p>
-          </div>
-          <div class="flex items-center space-x-4">
-              <x-fab-react class="techSize"/>
-              <p>React</p>
-          </div>    
-          <div class="flex items-center space-x-4">
-              <x-si-vuedotjs class="techSize"/>
-              <p>Vue.js</p>
-          </div>   
-          <div class="flex items-center space-x-4">
-              <x-fileicon-nextjs class="techSize"/>
-              <p>Next.js</p>
-          </div>           
-      </div>
-  </section>     
-  <section>
-      <div class="headTitle text-center">Proyectos</div>
-      <div class="flex flex-col items-center space-y-16 pb-16">
-        <div v-for="asd in data">
-          <slot name="title">
-            {{asd.title}}
-          </slot>
-          <slot name="description">
-            {{asd.description}}
-          </slot>
-          <slot name="repo">
-            {{asd.repo}}
-          </slot>
-          <slot name="live">
-            {{asd.live}}
-          </slot>
+    <div class="top">
+        <span>This site was made with</span> 
+        <a href="https://v3.nuxtjs.org/" class="linkCont">
+          <span>Nuxt 3</span> 
+          <img class="nuxt-icon"/>
+        </a>
+    </div>
+    <section class="nameContainer">
+        <div class='w-[600px]'>
+            <div class="flex items-center">
+                <img src="~/assets/svg/myName.svg" class="svg"/>
+                <p class="subTitle">Frontend Developer</p>
+            </div>
+            <p class="mt-4">
+                Estudiante de universidad de cuarto año.
+                Dispuesto a aprender nuevas tecnologías.
+                Ávido lector y amante de los lenguajes
+                naturales y de programación.
+            </p>
         </div>
-      </div>
-  </section>
+        <img src="~/assets/img/selfie.webp" alt="Image"/>            
+    </section> 
+    <section class="techSection">
+        <div class="headTitle">Tecnologías</div>
+        <div class="flex justify-center space-x-10 mt-4 mb-16 flex-wrap gap-y-8">
+            <div>
+                <div class="i-ant-design:html5-filled text-3xl"/>
+                <p>HTML5</p>
+            </div>   
+            <div>
+                <div class="i-bxl:css3 text-3xl"/> 
+                <p>CSS3</p>
+            </div>
+            <div>
+                <div class="i-bxl:typescript text-3xl"/>
+                <p>Typescript</p>
+            </div>             
+            <div>
+                <div class="i-bxl:tailwind-css text-3xl"/>
+                <p>Tailwind CSS</p>
+            </div>
+            <div>
+                <div class="i-akar-icons:javascript-fill text-3xl"/>
+                <p>Javascript</p>
+            </div>
+            <div>
+                <div class="i-akar-icons:react-fill text-3xl"/>
+                <p>React</p>
+            </div>  
+            <div>
+                <div class="i-cib:laravel text-3xl"/>
+                <p>Laravel</p>
+            </div>            
+            <div>
+                <div class="i-akar-icons:vue-fill text-3xl"/>
+                <p>Vue.js</p>
+            </div>   
+            <div>
+                <div class="i-akar-icons:nextjs-fill text-3xl"/>
+                <p>Next.js</p>
+            </div>           
+        </div>
+    </section>     
+    <section>
+        <div class="headTitle text-center">Proyectos</div>
+        <div class="flex flex-col items-center space-y-16 pb-16">
+          <ProjectCard v-for="asd in data">
+            <template #title>
+              {{asd.title}}
+            </template>
+              <p>{{asd.description}}</p>
+            <template #link>
+              {{asd.repo || null}}
+            </template>
+            <template #live>
+              {{asd.live || null}}
+            </template>
+          </ProjectCard>
+        </div>
+    </section>
   </div>
 </template>
 
 <script setup>
+import ProjectCard from '~~/components/project-card.vue';
   const data = [
         {
             title:"Aguinaga's Lab",
@@ -118,9 +121,30 @@
   p{
     color: var(--color);
   }
-  img.svg{
-    filter: var(--color);
-    clip-path: var(--color);
-    stroke: var(--color);
+  .nuxt-icon{
+    content: var(--source);
+    transition: 1s all;
+    height: 20px;
+    width: 20px;
+  }
+  .top{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+  }
+  .linkCont{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #00C58E;
+  }
+  a{
+    text-decoration: none;
+  }
+  .techSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

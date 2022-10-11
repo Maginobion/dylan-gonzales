@@ -6,4 +6,5 @@
 useHead({
   title: 'About'
 })
+
 </script>

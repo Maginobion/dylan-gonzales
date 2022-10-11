@@ -8,6 +8,15 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.11"
+    "@iconify/json": "^2.1.120",
+    "@unocss/preset-icons": "^0.45.29",
+    "nuxt": "3.0.0-rc.11",
+    "unplugin-icons": "^0.14.11"
+  },
+  "dependencies": {
+    "@unocss/nuxt": "^0.45.29",
+    "nuxt-vue-material": "^1.2.0",
+    "unocss": "^0.45.29",
+    "vue-material": "^1.0.0-beta-15"
   }
 }
