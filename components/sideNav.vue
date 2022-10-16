@@ -1,4 +1,33 @@
+<template>
+    <EffectButton @click="isOpen=true" class="iconCont">
+        <i class="backButton i-charm:menu-hamburger text-3xl"></i>
+    </EffectButton>
+    <nav :class="{activeSideNav : isOpen}" class="sideNav">
+        <ul class="navList">
+            <li><NuxtLink to="/" data-label="Home">Home</NuxtLink></li>
+            <li><NuxtLink to="/about" data-label="About">About</NuxtLink></li>
+            <li><NuxtLink to="/projects" data-label="Projects">Projects</NuxtLink></li>
+            <li><NuxtLink to="/contact" data-label="Contact">Contact</NuxtLink></li>
+        </ul>
+        <div class="exitCont">
+            <EffectButton class="iconCont right" @click="isOpen=false">
+                <i class="i-eva:arrow-back-fill text-3xl"></i>
+            </EffectButton>
+        </div>       
+    </nav>
+</template>
+
+<script setup>
+
+const isOpen = ref(false)
+
+</script>
+
+
 <style scoped>
+.backButton{
+    padding: 0;
+}
 .sideNav {
     height: 100%;
     width: 0;
@@ -6,7 +35,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(19, 18, 18);
+    background-color: var(--bg-secondary);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -22,13 +51,26 @@
     flex-direction: column;
 }
 
-.iconContainer{
+.iconCont{
+    padding-top: 2px;
+}
+
+.iconCont i{
     color: var(--color);
+    display: flex;
+    align-items: center; 
+}
+
+.exitCont{
+    display: flex;
+    justify-content: flex-end;
+}
+.right{
+    margin-right: 10px;  
 }
 
 button{
     border: 0;
-    background-color: transparent;
 }
 
 ul{
@@ -53,7 +95,7 @@ ul{
     align-items: center;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: var(--color);
     position: relative;
 }
 
@@ -77,7 +119,7 @@ ul{
     width: 380px;
 }
 
-.iconContainer:hover{
+.iconCont:hover{
     cursor: pointer;
 }
 
@@ -91,24 +133,3 @@ and (max-width: 1080px) {
 
 </style>
 
-<script setup>
-
-const isOpen = ref(false)
-const setNav = (state) => isOpen.value=state;
-
-</script>
-
-<template>
-    <button @click="setNav(true)" class="iconContainer">
-        <p>Abrir</p>
-    </button>
-    <nav :class="{activeSideNav : isOpen}" class="sideNav">
-        <ul class="navList">
-            <li><NuxtLink to="/" data-label="Home">Home</NuxtLink></li>
-            <li><NuxtLink to="/about" data-label="About">About</NuxtLink></li>
-            <li><NuxtLink to="/projects" data-label="Projects">Projects</NuxtLink></li>
-            <li><NuxtLink to="/contact" data-label="Contact">Contact</NuxtLink></li>
-        </ul>
-        <button @click="setNav(false)">Cerrar</button>
-    </nav>
-</template>

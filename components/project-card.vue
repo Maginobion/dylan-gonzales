@@ -1,20 +1,31 @@
 <template>
     <div class="container">
-        <p>
+        <h4>
             <slot name="title">Error</slot>
-        </p>
+        </h4>
         <slot></slot>
-        <p>
-            <slot name="link">Error</slot>
-        </p>
-        <p>
-            <slot name="live">Error</slot>
-        </p>
+        <div v-if="repoLink">
+            Repositorio: <NuxtLink :to="repoLink">{{repoLink}}</NuxtLink>
+        </div>
+        <div v-if="liveLink">
+            Live: <NuxtLink :to="liveLink">{{liveLink}}</NuxtLink>
+        </div>        
     </div>
 </template>
 
+<script setup lang="ts">
+    withDefaults(defineProps<{
+        repoLink?: string,
+        liveLink?: string
+    }>(),{
+        repoLink: '---',
+        liveLink: '---'
+    })
+</script>
+
 <style scoped>
 .container{
+    padding: 20px;
     border: 1px solid black;
 }
 </style>

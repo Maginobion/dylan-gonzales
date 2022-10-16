@@ -1,5 +1,5 @@
 <template>
-  <button :class="icon" @click="style==='' ? style='dark-mode' : style=''"></button>
+  <button :class="logic + ' themeSwitcher'" @click="style==='' ? style='dark-mode' : style=''"></button>
   <SideNav/>  
   <NuxtLayout>
     <NuxtPage />
@@ -10,9 +10,7 @@
 
 const style = ref('dark-mode')
 
-const logic = ref(style.value==='dark-mode' ? 'i-akar-icons:moon-fill' :  'i-clarity:sun-solid')
-
-const icon = ref(logic.value + ' text-3xl')
+const logic = computed(()=>style.value==='dark-mode' ? 'i-akar-icons:moon-fill' :  'i-clarity:sun-solid')
 
 useHead({
   titleTemplate: (title) => title ? `Maginobion - ${title}` : 'Maginobion',
@@ -29,25 +27,33 @@ useHead({
 </script>
 
 <style scoped>
-  :global(body){
-    /* --mainColor: v-bind(main);
-    --subColor: black; */
-    color: var(--color);
-    background-color: var(--bg);
-    font-family: 'Open Sans';
-    transition: all 0.4s;
-  }
+:global(body){
+  color: var(--color);
+  background-color: var(--bg);
+  font-family: 'Open Sans';
+  transition: all 0.4s;
+}
 
-  .page-enter-active, .page-leave-active {
-    transition: all 0.4s;
-  }
-  .page-enter-from, .page-leave-to {
-    opacity: 0;
-    filter: blur(1rem);
-  }
+button{
+  border: 0;
+}
 
-  @font-face {
-    font-family: 'Open Sans';
-    src: local('Open Sans'),url('~/assets/fonts/OpenSans.ttf');
+.page-enter-active, .page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from, .page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'),url('~/assets/fonts/OpenSans.ttf');
+}
+.themeSwitcher{
+  font-size: 1.875rem;
+  position: absolute;
+  right: 0;
+  margin: 4px;
 }
 </style>

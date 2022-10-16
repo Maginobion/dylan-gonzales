@@ -7,11 +7,11 @@
           <img class="nuxt-icon"/>
         </a>
     </div>
-    <section class="nameContainer">
+    <section class="infoContainer">
         <div class='w-[600px]'>
             <div class="flex items-center">
                 <img src="~/assets/svg/myName.svg" class="svg"/>
-                <p class="subTitle">Frontend Developer</p>
+                <p class="ml-4">Frontend Developer</p>
             </div>
             <p class="mt-4">
                 Estudiante de universidad de cuarto año.
@@ -24,59 +24,18 @@
     </section> 
     <section class="techSection">
         <div class="headTitle">Tecnologías</div>
-        <div class="flex justify-center space-x-10 mt-4 mb-16 flex-wrap gap-y-8">
-            <div>
-                <div class="i-ant-design:html5-filled text-3xl"/>
-                <p>HTML5</p>
-            </div>   
-            <div>
-                <div class="i-bxl:css3 text-3xl"/> 
-                <p>CSS3</p>
-            </div>
-            <div>
-                <div class="i-bxl:typescript text-3xl"/>
-                <p>Typescript</p>
-            </div>             
-            <div>
-                <div class="i-bxl:tailwind-css text-3xl"/>
-                <p>Tailwind CSS</p>
-            </div>
-            <div>
-                <div class="i-akar-icons:javascript-fill text-3xl"/>
-                <p>Javascript</p>
-            </div>
-            <div>
-                <div class="i-akar-icons:react-fill text-3xl"/>
-                <p>React</p>
-            </div>  
-            <div>
-                <div class="i-cib:laravel text-3xl"/>
-                <p>Laravel</p>
-            </div>            
-            <div>
-                <div class="i-akar-icons:vue-fill text-3xl"/>
-                <p>Vue.js</p>
-            </div>   
-            <div>
-                <div class="i-akar-icons:nextjs-fill text-3xl"/>
-                <p>Next.js</p>
-            </div>           
+        <div class="flex justify-center space-x-10 mt-8 mb-16 flex-wrap gap-y-8">
+          <TechDisplay :techStack="techStack"/>
         </div>
     </section>     
     <section>
         <div class="headTitle text-center">Proyectos</div>
         <div class="flex flex-col items-center space-y-16 pb-16">
-          <ProjectCard v-for="asd in data">
+          <ProjectCard v-for="asd in data" :repoLink="asd.repo" :liveLink="asd.live">
             <template #title>
               {{asd.title}}
             </template>
-              <p>{{asd.description}}</p>
-            <template #link>
-              {{asd.repo || null}}
-            </template>
-            <template #live>
-              {{asd.live || null}}
-            </template>
+            <p>{{asd.description}}</p>
           </ProjectCard>
         </div>
     </section>
@@ -85,37 +44,93 @@
 
 <script setup>
 import ProjectCard from '~~/components/project-card.vue';
-  const data = [
-        {
-            title:"Aguinaga's Lab",
-            description:"Proyecto trabajado en React para un laboratorio de vacunas. Aplicación escrita en su totalidad bajo el paradigma de componentes funcionales.",
-            stack: ['react', 'next', 'tailwind'],
-            repo:"",
-            live:"",
-        },
-        {
-            title:"Portafolio",
-            description:"Esta página recopila todos los trabajos y tecnologíasque domino. Diseñada con el propósito de darme a conocer al cliente.",
-            stack: ['vue', 'nuxt'],
-            repo:"https://github.com/Maginobion/personal-portfolio",
-            live:"",
-        },
-        {
-            title:"Pokemon CRUD",
-            description:"Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
-            stack: ['react', 'jest', 'testing-library', 'tailwind'],
-            repo:"https://github.com/Maginobion/pokemon-crud",
-            live:"",
-        },
-    ]
-    useHead({
-      title: 'Home'
-    })
+const techStack = [
+  {
+    class: 'i-ant-design:html5-filled',
+    label: 'HTML5'
+  },
+  {
+    class: 'i-bxl:css3',
+    label: 'CSS3'
+  },
+  {
+    class: 'i-bxl:typescript',
+    label: 'Typescript'
+  },
+  {
+    class: 'i-bxl:tailwind-css',
+    label: 'Tailwind CSS'
+  },
+  {
+    class: 'i-akar-icons:javascript-fill',
+    label: 'Javascript'
+  },
+  {
+    class: 'i-akar-icons:react-fill',
+    label: 'React'
+  },
+  {
+    class: 'i-akar-icons:vue-fill',
+    label: 'Vue 3'
+  },
+  {
+    class: 'i-akar-icons:nextjs-fill',
+    label: 'Next.js'
+  },
+  {
+    class: 'i-cib:laravel',
+    label: 'Laravel'
+  },
+]
+
+const data = [
+  {
+    title:"Aguinaga's Lab",
+    description:"Proyecto trabajado en React para un laboratorio de vacunas. Aplicación escrita en su totalidad bajo el paradigma de componentes funcionales.",
+    stack: ['react', 'next', 'tailwind'],
+    repo:"",
+    live:"",
+  },
+  {
+    title:"Portafolio V2",
+    description:"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
+    stack: ['vue', 'nuxt'],
+    repo:"https://github.com/Maginobion/nuxt-portfolio",
+    live:"",
+  },
+  {
+    title:"Portafolio V1",
+    description:"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
+    stack: ['laravel', 'vue'],
+    repo:"https://github.com/Maginobion/personal-portfolio",
+    live:"",
+  },
+  {
+    title:"Pokemon CRUD",
+    description:"Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
+    stack: ['react', 'jest', 'testing-library', 'tailwind'],
+    repo:"https://github.com/Maginobion/pokemon-crud",
+    live:"",
+  },
+]
+useHead({
+  title: 'Home'
+})
 </script>
 
 <style scoped>
-  .nameContainer img{
-    width: 500px;
+
+  img{
+    width: 10px;
+  }
+  .infoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0;
+  }
+  .infoContainer img{
+    width: 260px;
     border-radius: 1000px;
   }
   p{
