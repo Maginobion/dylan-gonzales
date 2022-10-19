@@ -1,6 +1,9 @@
 <template>
-  <button :class="logic + ' themeSwitcher'" @click="style==='' ? style='dark-mode' : style=''"></button>
-  <SideNav/>  
+  <button
+    :class="logic + ' themeSwitcher'" 
+    @click="style==='' ? style='dark-mode' : style=''"
+    aria-label="theme button"/>
+  <SideNav/>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
@@ -14,13 +17,16 @@ const logic = computed(()=>style.value==='dark-mode' ? 'i-akar-icons:moon-fill' 
 
 useHead({
   titleTemplate: (title) => title ? `Maginobion - ${title}` : 'Maginobion',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  htmlAttrs:[{
+    lang: 'es',
+  }],
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   charset: 'utf-8',
   meta: [
     { name: 'description', content: 'My amazing site.' }
   ],
   bodyAttrs: {
-    class: style
+    class: style,
   }
 })
 
@@ -48,12 +54,12 @@ button{
 
 @font-face {
   font-family: 'Open Sans';
-  src: local('Open Sans'),url('~/assets/fonts/OpenSans.ttf');
+  src: 'sans-serif';
 }
 .themeSwitcher{
   font-size: 1.875rem;
   position: absolute;
-  right: 0;
+  right: 10px;
   margin: 4px;
 }
 </style>

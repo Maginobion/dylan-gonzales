@@ -4,7 +4,7 @@ import UnocssIcons from '@unocss/preset-icons'
 
 export default defineNuxtConfig({
     modules: [
-        '@unocss/nuxt'
+        '@unocss/nuxt',
     ],
     unocss:{
         // presets
@@ -17,9 +17,8 @@ export default defineNuxtConfig({
         rules: [],
     },
     runtimeConfig:{
-        public:{
-            apiBase: ''
-        }
+        nodemaileruser: process.env.MAILTRAP_USERNAME,
+        nodemailerpass: process.env.MAILTRAP_PASSWORD
     },
     css: ['@/assets/css/styles.css']
 })

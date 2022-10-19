@@ -3,14 +3,14 @@
     <div class="top">
         <span>This site was made with</span> 
         <a href="https://v3.nuxtjs.org/" class="linkCont">
-          <span>Nuxt 3</span> 
-          <img class="nuxt-icon"/>
+          <span>Nuxt 3</span>
+          <img class="nuxt-icon" alt="Nuxt Framework Icon" style="height: 20px; width: 20px;"/>
         </a>
     </div>
     <section class="infoContainer">
         <div class='w-[600px]'>
             <div class="flex items-center">
-                <img src="~/assets/svg/myName.svg" class="svg"/>
+                <img src="~/assets/svg/myName.svg" width="260px" height="63.63px" style="width: 260px;" alt="Dylan Gonzales Logotype"/>
                 <p class="ml-4">Frontend Developer</p>
             </div>
             <p class="mt-4">
@@ -20,24 +20,20 @@
                 naturales y de programación.
             </p>
         </div>
-        <img src="~/assets/img/selfie.webp" alt="Image"/>            
+        <img src="~/assets/img/selfie.webp" width="260px" height="260px" alt="Dylan Gonzales Portrait" class="selfie"/>            
     </section> 
     <section class="techSection">
-        <div class="headTitle">Tecnologías</div>
-        <div class="flex justify-center space-x-10 mt-8 mb-16 flex-wrap gap-y-8">
-          <TechDisplay :techStack="techStack"/>
-        </div>
+        <h4 class="headTitle">Tecnologías</h4>
+        <TechDisplay :techStack="techStack"/>
     </section>     
     <section>
-        <div class="headTitle text-center">Proyectos</div>
-        <div class="flex flex-col items-center space-y-16 pb-16">
-          <ProjectCard v-for="asd in data" :repoLink="asd.repo" :liveLink="asd.live">
-            <template #title>
-              {{asd.title}}
-            </template>
-            <p>{{asd.description}}</p>
-          </ProjectCard>
-        </div>
+        <h4 class="headTitle text-center">Proyectos</h4>
+        <ProjectCard v-for="asd in data" :repoLink="asd.repo" :liveLink="asd.live">
+          <template #title>
+            {{asd.title}}
+          </template>
+          <p>{{asd.description}}</p>
+        </ProjectCard>
     </section>
   </div>
 </template>
@@ -96,7 +92,7 @@ const data = [
     description:"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
     stack: ['vue', 'nuxt'],
     repo:"https://github.com/Maginobion/nuxt-portfolio",
-    live:"",
+    live:"https://nuxt-portfolio-xi.vercel.app/",
   },
   {
     title:"Portafolio V1",
@@ -108,9 +104,9 @@ const data = [
   {
     title:"Pokemon CRUD",
     description:"Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
-    stack: ['react', 'jest', 'testing-library', 'tailwind'],
+    stack: ['react', 'jest', 'testing-library', 'mock worker service', 'tailwind'],
     repo:"https://github.com/Maginobion/pokemon-crud",
-    live:"",
+    live:"https://pokemon-crud-bice.vercel.app/",
   },
 ]
 useHead({
@@ -129,7 +125,7 @@ useHead({
     justify-content: center;
     margin: 60px 0;
   }
-  .infoContainer img{
+  .selfie{
     width: 260px;
     border-radius: 1000px;
   }
@@ -139,8 +135,6 @@ useHead({
   .nuxt-icon{
     content: var(--source);
     transition: 1s all;
-    height: 20px;
-    width: 20px;
   }
   .top{
     display: flex;
@@ -161,5 +155,20 @@ useHead({
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .headTitle{
+    padding: 12px 0;
+  }
+  section{
+    padding: 20px auto;
+  }
+
+  @media screen and (max-width: 1150px){
+    .infoContainer{
+      flex-direction: column;
+    }
+    .infoContainer>div{
+      width: min-content;
+    }
   }
 </style>

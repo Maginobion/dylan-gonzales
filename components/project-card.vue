@@ -25,7 +25,18 @@
 
 <style scoped>
 .container{
-    padding: 20px;
-    border: 1px solid black;
+    padding: 24px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    margin: 10px auto;
 }
+
+@media screen and (max-width: 1150px){
+    .infoContainer{
+      flex-direction: column;
+    }
+    .infoContainer>div{
+      width: min-content;
+    }
+  }
 </style>

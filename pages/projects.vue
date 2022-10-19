@@ -1,6 +1,7 @@
 <template>
     <div>
         Proyectos
+        <p>Página en construcción</p>
     </div>
 </template>
 

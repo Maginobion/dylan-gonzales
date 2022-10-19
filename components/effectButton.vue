@@ -1,12 +1,6 @@
 <template>
     <button class="container">
         <slot/>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
     </button>
 </template>
 

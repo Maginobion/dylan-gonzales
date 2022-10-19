@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <div class="card">
-            <h1 class="title">Acerca de mí</h1>
+            <h1 class="title">Acerca de&nbsp;mí</h1>
             <p>
                 Soy un desarrollador Front-end que reside en Perú.
                 Tengo una pasión latente por lograr una exquisita
@@ -27,6 +27,9 @@
 </template>
 
 <style scoped>
+.container{
+    margin: 0 28px;
+}
 .title{
     --mycolor: v-bind('mycolor');
     font-size: 70px;
@@ -91,6 +94,15 @@ a:hover::after{
       0 0 70px red,
       0 0 80px red;
   }
+}
+
+@media screen and (max-width: 1150px){
+    .title{
+        flex-direction: column;
+    }
+    .infoContainer>div{
+        width: min-content;
+    }
 }
 </style>
 

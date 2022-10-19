@@ -1,5 +1,9 @@
 <template>
-    <EffectButton @click="isOpen=true" class="iconCont">
+    <EffectButton 
+        @click="isOpen=true" 
+        class="iconCont"
+        aria-label="open navigation bar"
+    >
         <i class="backButton i-charm:menu-hamburger text-3xl"></i>
     </EffectButton>
     <nav :class="{activeSideNav : isOpen}" class="sideNav">
@@ -10,7 +14,11 @@
             <li><NuxtLink to="/contact" data-label="Contact">Contact</NuxtLink></li>
         </ul>
         <div class="exitCont">
-            <EffectButton class="iconCont right" @click="isOpen=false">
+            <EffectButton 
+                class="iconCont right" 
+                @click="isOpen=false" 
+                aria-label="close navigation bar"
+            >
                 <i class="i-eva:arrow-back-fill text-3xl"></i>
             </EffectButton>
         </div>       

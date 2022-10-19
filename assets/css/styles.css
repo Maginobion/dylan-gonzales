@@ -6,6 +6,8 @@
     --bg: white;
     --bg-secondary: gray;
     --border-color: #ddd;
+    --error-color: rgb(237, 38, 38);
+    --success-color: rgb(75, 229, 75);
 }
 
 .dark-mode {
@@ -16,6 +18,8 @@
     --bg: #091a28;
     --bg-secondary: #0d2133;
     --border-color: #0d2538;
+    --error-color: rgb(237, 38, 38);
+    --success-color: lightgreen;
 }
 
 a {
