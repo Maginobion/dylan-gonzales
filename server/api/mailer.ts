@@ -16,10 +16,7 @@ export default defineEventHandler(async (event) => {
   // Or use SMTP if you feel like
 
   const body = await readBody(event) // Pass params via JSON in the POST request
-
-  console.log(config.nodemaileruser)
-  console.log(config.nodemailerpass)
-
+  
   const result = transporter.sendMail({
     from: body.email,
     to: '1913010909@untels.edu.pe',

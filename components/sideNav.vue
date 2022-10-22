@@ -37,6 +37,7 @@ const isOpen = ref(false)
     padding: 0;
 }
 .sideNav {
+    opacity: 0.8;
     height: 100%;
     width: 0;
     position: fixed;
@@ -74,7 +75,7 @@ const isOpen = ref(false)
     justify-content: flex-end;
 }
 .right{
-    margin-right: 10px;  
+    margin: 20px 10px 0 0;  
 }
 
 button{
