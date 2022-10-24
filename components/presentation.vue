@@ -1,28 +1,21 @@
 <template>
     <div class="container">
         <div class="card">
-            <h1 class="title">Acerca de&nbsp;mí</h1>
+            <h1 class="title">{{$t('aboutMe')}}</h1>
             <p>
-                Soy un desarrollador Front-end que reside en Perú.
-                Tengo una pasión latente por lograr una exquisita
-                interactividad con el usuario en el entorno web.
+                {{$t('aboutMeFirst')}}
             </p>
             <p>
-                Proactivo, con ganas de destruir el molde y probar
-                cosas nuevas. Un fanático de la cultura asiática,
-                la vida hogareña y la tecnología.
+                {{$t('aboutMeSecond')}}
             </p>
             <p>
-                Sigo muy de cerca los cambios que ocurren en todo
-                el espectro del front-end e intento mantenerme siempre
-                a la vanguardia.
+                {{$t('aboutMeThird')}}
             </p>
             <p>
-                Trabajando en proyectos ambiciosos con personas
-                positivas.
+                {{$t('aboutMeFourth')}}
             </p>
         </div>
-        <NuxtLink to="/contact">Hagamos realidad tu idea.</NuxtLink>
+        <NuxtLink to="/contact">{{$t('aboutMeButton')}}</NuxtLink>
     </div>
 </template>
 
@@ -36,6 +29,7 @@
     color: var(--mycolor);
     filter: drop-shadow(0 0 20px var(--mycolor));
     margin-bottom: 20px;
+    white-space: nowrap;
     transition: 0.6s all ease-in-out;
 }
 p{

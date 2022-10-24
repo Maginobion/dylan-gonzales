@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="asd">
-        <h1>¿Interesado?</h1>
+        <h1>{{$t("contactTitle")}}</h1>
         <p>
-            Si tienes alguna pregunta sobre mí o mis proyectos, no dudes 
-            en ponerte en contacto enviándome un correo.
+          {{$t("contactFirst")}}
         </p>
-        <p>Déjame un comentario o pregunta y cuéntame qué es lo que quieres armar.</p>
-        <p class="mt-4">Para contacto directo:</p>
+        <p>{{$t("contactSecond")}}</p>
+        <p class="mt-4">{{$t("contactDirect")}}</p>
         <a href="mailto:1913010909@untels.edu.pe?Subject=Interesado%20en%20tu%20CV">
           1913010909@untels.edu.pe
         </a>
@@ -68,7 +67,7 @@ useHead({
 })
 definePageMeta({
   pageTransition: {
-    name: 'rotate'
+    name: 'blur'
   }
 })
 

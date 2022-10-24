@@ -4,12 +4,20 @@
     @click="style==='' ? style='dark-mode' : style=''"
     aria-label="theme button"/>
   <SideNav/>
+  <div class="buttonCont">
+    <button @click="$i18n.locale='es'">ES</button>
+    <button @click="$i18n.locale='en'">EN</button>
+  </div>
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+
+
+const t = useI18n()
 
 const style = ref('dark-mode')
 
@@ -18,12 +26,15 @@ const logic = computed(()=>style.value==='dark-mode' ? 'i-akar-icons:moon-fill' 
 useHead({
   titleTemplate: (title) => title ? `Maginobion - ${title}` : 'Maginobion',
   htmlAttrs:[{
-    lang: 'es',
+    lang: t.locale,
   }],
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   charset: 'utf-8',
   meta: [
     { name: 'description', content: 'My amazing site.' }
+  ],
+  link:[
+    { rel: 'icon', type:'image/x-icon', href: '/favicon.ico' }
   ],
   bodyAttrs: {
     class: style,
@@ -42,6 +53,25 @@ useHead({
 
 button{
   border: 0;
+}
+
+.buttonCont{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonCont button{
+  background-color: transparent;
+  color: var(--color);
+}
+
+.buttonCont button:hover{
+  color: var(--color-primary);
+}
+
+.buttonCont button + button {
+  border-left: 1px solid var(--color);
 }
 
 .page-enter-active, .page-leave-active {

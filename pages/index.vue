@@ -8,107 +8,30 @@
         </a>
     </div>
     <section class="infoContainer">
-        <div class='w-[600px]'>
+        <div class='w-[560px] p-4'>
             <div class="flex items-center">
                 <img src="~/assets/svg/myName.svg" width="260px" height="63.63px" style="width: 260px;" alt="Dylan Gonzales Logotype"/>
                 <p class="ml-4">Frontend Developer</p>
             </div>
             <p class="mt-4">
-                Estudiante de universidad de cuarto año.
-                Dispuesto a aprender nuevas tecnologías.
-                Ávido lector y amante de los lenguajes
-                naturales y de programación.
+              {{$t('description')}}
             </p>
         </div>
         <img src="~/assets/img/selfie.webp" width="260px" height="260px" alt="Dylan Gonzales Portrait" class="selfie"/>            
     </section> 
     <section class="techSection">
-        <h4 class="headTitle">Tecnologías</h4>
-        <TechDisplay :techStack="techStack"/>
+        <h4 class="headTitle">{{$t('techSubtitle')}}</h4>
+        <TechDisplay/>
     </section>     
     <section>
-        <h4 class="headTitle text-center">Proyectos</h4>
-        <ProjectCard v-for="asd in data" :repoLink="asd.repo" :liveLink="asd.live">
-          <template #title>
-            {{asd.title}}
-          </template>
-          <p>{{asd.description}}</p>
-        </ProjectCard>
+        <h4 class="headTitle text-center">{{$t('projectSubtitle')}}</h4>
+        <ProjectDisplay/>
     </section>
   </div>
 </template>
 
 <script setup>
-import ProjectCard from '~~/components/project-card.vue';
-const techStack = [
-  {
-    class: 'i-ant-design:html5-filled',
-    label: 'HTML5'
-  },
-  {
-    class: 'i-bxl:css3',
-    label: 'CSS3'
-  },
-  {
-    class: 'i-bxl:typescript',
-    label: 'Typescript'
-  },
-  {
-    class: 'i-bxl:tailwind-css',
-    label: 'Tailwind CSS'
-  },
-  {
-    class: 'i-akar-icons:javascript-fill',
-    label: 'Javascript'
-  },
-  {
-    class: 'i-akar-icons:react-fill',
-    label: 'React'
-  },
-  {
-    class: 'i-akar-icons:vue-fill',
-    label: 'Vue 3'
-  },
-  {
-    class: 'i-akar-icons:nextjs-fill',
-    label: 'Next.js'
-  },
-  {
-    class: 'i-cib:laravel',
-    label: 'Laravel'
-  },
-]
 
-const data = [
-  {
-    title:"Aguinaga's Lab",
-    description:"Proyecto trabajado en React para un laboratorio de vacunas. Aplicación escrita en su totalidad bajo el paradigma de componentes funcionales.",
-    stack: ['react', 'next', 'tailwind'],
-    repo:"",
-    live:"",
-  },
-  {
-    title:"Portafolio V2",
-    description:"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
-    stack: ['vue', 'nuxt'],
-    repo:"https://github.com/Maginobion/nuxt-portfolio",
-    live:"https://nuxt-portfolio-xi.vercel.app/",
-  },
-  {
-    title:"Portafolio V1",
-    description:"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
-    stack: ['laravel', 'vue'],
-    repo:"https://github.com/Maginobion/personal-portfolio",
-    live:"",
-  },
-  {
-    title:"Pokemon CRUD",
-    description:"Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
-    stack: ['react', 'jest', 'testing-library', 'mock worker service', 'tailwind'],
-    repo:"https://github.com/Maginobion/pokemon-crud",
-    live:"https://pokemon-crud-bice.vercel.app/",
-  },
-]
 useHead({
   title: 'Home'
 })

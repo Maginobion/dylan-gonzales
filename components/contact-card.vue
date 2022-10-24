@@ -4,42 +4,41 @@
         <div class="inputBlock">       
           <input 
             type="text"
-            placeholder="Nombre"
+            :placeholder="$t(`contactName`)"
             name="name"
             id="name"
             v-model="name">
-            <label for="name">Nombre</label>
+            <label for="name">{{$t("contactName")}}</label>
         </div>
         <div class="inputBlock">         
             <input 
                 type="text"
                 pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
                 name="mail" 
-                placeholder="Correo"
+                :placeholder="$t(`contactEmail`)"
                 id="mail" 
                 v-model="email">
-            <label for="mail">Correo</label>
+            <label for="mail">{{$t("contactEmail")}}</label>
         </div>
         <div class="inputBlock">         
           <input 
             type="text" 
             name="subject" 
-            placeholder="Asunto"
+            :placeholder="$t(`contactSubject`)"
             id="subject" 
             v-model="subject">
-            <label for="subject">Asunto</label>
+            <label for="subject">{{$t("contactSubject")}}</label>
         </div>
         <div class="inputBlock">          
             <textarea 
                 type="text" 
                 name="message" 
-                placeholder="Mensaje"
-                id="message"
-                
+                :placeholder="$t(`contactMessage`)"
+                id="message"               
                 v-model="message"/>
-            <label for="message">Mensaje</label>
+            <label for="message">{{$t("contactMessage")}}</label>
         </div>
-        <button @click.prevent="send">Confirmar</button>
+        <button @click.prevent="send">{{$t("contactButton")}}</button>
         <div class="status">
             <ul>
                 <li class="errors" v-for="error in status">{{error}}</li>
@@ -115,12 +114,11 @@ textarea:not(:placeholder-shown):valid + label::after{
 input:not(:placeholder-shown):invalid + label, 
 textarea:not(:placeholder-shown):invalid + label{
     color: var(--bg);
-    background-color: var(--color);
+    background-color: var(--error-color);
     border-radius: 4px;
     font-size: 0.9rem;
     padding: 2px 6px;
     translate: 0 -26px;
-    background-color: var(--error-color);
 }
 
 input::placeholder,
@@ -174,6 +172,8 @@ textarea{
 </style>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+
 
 const name = ref('')
 const email = ref('')
@@ -182,6 +182,10 @@ const message = ref('')
 const status = ref([])
 const success = ref('')
 
+const t = useI18n()
+watch(t.locale,()=>{
+  status.value=[]
+})
 watch(name,()=>{
   status.value=[]
 })
@@ -200,11 +204,11 @@ const emailRegex = new RegExp(regexString,'g')
 
 const send = async () =>{
   status.value=[]
-  if(name.value==='') status.value.push('Ingrese un nombre.')
-  if(email.value==='') status.value.push('Ingrese un correo.')
-  else if(!emailRegex.test(email.value)) status.value.push('Ingrese correctamente su email.')
-  if(subject.value==='') status.value.push('Ingrese un asunto.')
-  if(message.value==='') status.value.push('Ingrese el contenido del mensaje.')
+  if(name.value==='') status.value.push(t.t('nameEmpty'))
+  if(email.value==='') status.value.push(t.t('emailEmpty'))
+  else if(!emailRegex.test(email.value)) status.value.push(t.t('emailError'))
+  if(subject.value==='') status.value.push(t.t('subjectEmpty'))
+  if(message.value==='') status.value.push(t.t('messageEmpty'))
   if(status.value.length===0){
     const result = await $fetch('/api/mailer',{
       method: 'POST',
@@ -216,8 +220,7 @@ const send = async () =>{
       }
     }).catch(err=>console.log(err))
     const resultStatus = result.accepted.length>0 ?
-    '¡Mensaje recibido! Nos pondremos en contacto.' :
-    'Hubo un error al enviar el mensaje. Inténtalo otra vez.'
+    t.t('sendingSuccess') : t.t('sendingError')
     success.value = resultStatus
   }
 }

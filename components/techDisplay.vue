@@ -8,12 +8,52 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-    techStack: {
-        class: string,
-        label: string
-    }[],
-}>()
+// defineProps<{
+//     techStack: {
+//         class: string,
+//         label: string
+//     }[],
+// }>()
+
+const techStack = [
+  {
+    class: 'i-ant-design:html5-filled',
+    label: 'HTML5'
+  },
+  {
+    class: 'i-bxl:css3',
+    label: 'CSS3'
+  },
+  {
+    class: 'i-bxl:typescript',
+    label: 'Typescript'
+  },
+  {
+    class: 'i-bxl:tailwind-css',
+    label: 'Tailwind CSS'
+  },
+  {
+    class: 'i-akar-icons:javascript-fill',
+    label: 'Javascript'
+  },
+  {
+    class: 'i-akar-icons:react-fill',
+    label: 'React'
+  },
+  {
+    class: 'i-akar-icons:vue-fill',
+    label: 'Vue 3'
+  },
+  {
+    class: 'i-akar-icons:nextjs-fill',
+    label: 'Next.js'
+  },
+  {
+    class: 'i-cib:laravel',
+    label: 'Laravel'
+  },
+]
+
 </script>
 
 <style scoped>
