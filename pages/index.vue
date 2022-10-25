@@ -4,27 +4,43 @@
         <span>This site was made with</span> 
         <a href="https://v3.nuxtjs.org/" class="linkCont">
           <span>Nuxt 3</span>
-          <img class="nuxt-icon" alt="Nuxt Framework Icon" style="height: 20px; width: 20px;"/>
+          <img 
+            class="nuxt-icon" 
+            alt="Nuxt Framework Icon" 
+            style="height: 20px; width: 20px;"
+          />
         </a>
     </div>
     <section class="infoContainer">
         <div class='w-[560px] p-4'>
             <div class="flex items-center">
-                <img src="~/assets/svg/myName.svg" width="260px" height="63.63px" style="width: 260px;" alt="Dylan Gonzales Logotype"/>
+                <nuxt-img 
+                  src="/myName.svg" 
+                  width="260px" 
+                  height="63.63px"
+                  sizes="sm:100vw md:50vw lg:400px"
+                  alt="Dylan Gonzales Logotype"
+                />
                 <p class="ml-4">Frontend Developer</p>
             </div>
             <p class="mt-4">
               {{$t('description')}}
             </p>
         </div>
-        <img src="~/assets/img/selfie.webp" width="260px" height="260px" alt="Dylan Gonzales Portrait" class="selfie"/>            
+        <nuxt-img 
+          src="/selfie.webp" 
+          width="260px" 
+          height="260px" 
+          alt="Dylan Gonzales Portrait"
+          class="selfie"
+        />            
     </section> 
-    <section class="techSection">
+    <section>
         <h4 class="headTitle">{{$t('techSubtitle')}}</h4>
         <TechDisplay/>
     </section>     
     <section>
-        <h4 class="headTitle text-center">{{$t('projectSubtitle')}}</h4>
+        <h4 class="headTitle">{{$t('projectSubtitle')}}</h4>
         <ProjectDisplay/>
     </section>
   </div>
@@ -33,15 +49,15 @@
 <script setup>
 
 useHead({
-  title: 'Home'
+  title: 'Home',
+  meta: [
+    { name: 'description', content: 'My amazing site.' }
+  ],
 })
 </script>
 
 <style scoped>
 
-  img{
-    width: 10px;
-  }
   .infoContainer{
     display: flex;
     align-items: center;
@@ -74,12 +90,8 @@ useHead({
   a{
     text-decoration: none;
   }
-  .techSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
   .headTitle{
+    text-align: center;
     padding: 12px 0;
   }
   section{

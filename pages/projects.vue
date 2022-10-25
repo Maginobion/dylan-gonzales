@@ -1,12 +1,15 @@
 <template>
     <div>
-        Proyectos
-        <p>Página en construcción</p>
+        <MainTitle/>
+        <p>{{$t('working')}}</p>
     </div>
 </template>
 
 <script setup>
 useHead({
-    title: 'Projects'
+    title: 'Projects',
+    meta: [
+        { name: 'Projects', content: 'My amazing projects.' }
+    ],
 })
 </script>

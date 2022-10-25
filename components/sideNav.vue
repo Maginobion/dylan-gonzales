@@ -1,7 +1,7 @@
 <template>
     <EffectButton 
         @click="isOpen=true" 
-        class="iconCont"
+        class="opener iconCont"
         aria-label="open navigation bar"
     >
         <i class="backButton i-charm:menu-hamburger text-3xl"></i>
@@ -33,6 +33,11 @@ const isOpen = ref(false)
 
 
 <style scoped>
+
+.opener{
+    position: fixed;
+}
+
 .backButton{
     padding: 0;
 }

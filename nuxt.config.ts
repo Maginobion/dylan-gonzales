@@ -8,7 +8,11 @@ import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 export default defineNuxtConfig({
     modules: [
         '@unocss/nuxt',
+        '@nuxt/image-edge',
     ],
+    app:{
+        pageTransition: { name: 'page', mode: 'out-in' }
+    },
     vite: {
         plugins: [
             VueI18nVitePlugin({

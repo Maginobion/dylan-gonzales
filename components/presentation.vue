@@ -104,11 +104,12 @@ a:hover::after{
 
 const mycolor = ref('black')
 
+const randomizer = () => "hsl(" + 360 * Math.random() + ',' + (25 + 70 * Math.random()) + '%,' + (55 + 10 * Math.random()) + '%)'
+
 const randomColor = () =>{
+    mycolor.value = randomizer()
     setInterval(()=>{
-        mycolor.value = "hsl(" + 360 * Math.random() + ',' +
-        (25 + 70 * Math.random()) + '%,' + 
-        (55 + 10 * Math.random()) + '%)'
+        mycolor.value = randomizer()
     },600)
 }
 

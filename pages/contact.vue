@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <div class="asd">
-        <h1>{{$t("contactTitle")}}</h1>
-        <p>
-          {{$t("contactFirst")}}
-        </p>
-        <p>{{$t("contactSecond")}}</p>
-        <p class="mt-4">{{$t("contactDirect")}}</p>
-        <a href="mailto:1913010909@untels.edu.pe?Subject=Interesado%20en%20tu%20CV">
-          1913010909@untels.edu.pe
-        </a>
-    </div>            
-    <ContactCard/>
-  </div>
+  <div class="asd">
+      <h1>{{$t("contactTitle")}}</h1>
+      <p>
+        {{$t("contactFirst")}}
+      </p>
+      <p>{{$t("contactSecond")}}</p>
+      <p class="mt-4">{{$t("contactDirect")}}</p>
+      <a href="mailto:1913010909@untels.edu.pe?Subject=Interesado%20en%20tu%20CV">
+        1913010909@untels.edu.pe
+      </a>
+      <ContactCard/>
+  </div>            
 </template>
 
 <style scoped>
@@ -63,12 +61,10 @@ h1::after{
 <script setup>
 
 useHead({
-    title: 'Contact'
-})
-definePageMeta({
-  pageTransition: {
-    name: 'blur'
-  }
+    title: 'Contact',
+    meta: [
+        { name: 'Contact', content: 'My contact information.' }
+    ],
 })
 
 </script>

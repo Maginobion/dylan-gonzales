@@ -28,5 +28,8 @@
     "messageEmpty":"Write the content of the message.",
     "sendingSuccess":"¡Message received! We'll keep in touch.",
     "sendingError":"There was an error sending the message. Try again in a minute.",
-    "menu": ["Home","About","Projects","Contact"]
+    "menu": ["Home","About","Projects","Contact"],
+    "greetings":"Hello!",
+    "introduction": "I'm Dylan Gonzales",
+    "working":"And I'll show you my projects... soon."
 }

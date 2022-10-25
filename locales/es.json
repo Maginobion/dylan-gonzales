@@ -28,5 +28,8 @@
     "messageEmpty":"Ingrese el contenido del mensaje.",
     "sendingSuccess":"¡Mensaje recibido! Nos pondremos en contacto.",
     "sendingError":"Hubo un error al enviar el mensaje. Inténtalo otra vez.",
-    "menu": ["Inicio","Acerca de mí","Proyectos","Contáctame"]
+    "menu": ["Inicio","Acerca de mí","Proyectos","Contáctame"],
+    "greetings":"¡Hola!",
+    "introduction": "Soy Dylan Gonzales",
+    "working":"Y voy a presentarte mis proyectos... muy pronto."
 }
