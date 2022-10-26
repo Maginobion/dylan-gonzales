@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 
 export default defineNuxtConfig({
+    typescript:{
+        shim: false
+    },
     modules: [
         '@unocss/nuxt',
         '@nuxt/image-edge',

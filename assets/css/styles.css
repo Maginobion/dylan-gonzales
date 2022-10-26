@@ -4,8 +4,10 @@
     --color-secondary: #0e2233;
     --source: url("~/assets/svg/nuxt.svg");
     --bg: white;
-    --bg-secondary: gray;
+    --bg-secondary: rgb(147, 137, 137);
+    --bg-auxiliary: rgb(92, 169, 155);
     --border-color: #ddd;
+    --glow: rgb(78, 39, 235);
     --error-color: rgb(237, 38, 38);
     --success-color: rgb(75, 229, 75);
 }
@@ -17,7 +19,9 @@
     --source: url("~/assets/svg/nuxt-white.svg");
     --bg: #091a28;
     --bg-secondary: #0d2133;
+    --bg-auxiliary: rgb(51, 98, 89);
     --border-color: #0d2538;
+    --glow: greenyellow;
     --error-color: rgb(237, 38, 38);
     --success-color: lightgreen;
 }

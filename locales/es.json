@@ -1,11 +1,13 @@
 {
     "description":"Estudiante de universidad de cuarto año. Dispuesto a aprender nuevas tecnologías. Ávido lector y amante de los lenguajes naturales y de programación.",
+    "download":"Descargar CV",
     "techSubtitle": "Tecnologías",
     "projectSubtitle": "Proyectos",
     "foxbelDesc": "Single Page Application en Vue que simula una aplicación del estilo de Spotify, diseño totalmente responsive.",
     "portfolioDesc":"Esta página recopila todos los trabajos y tecnologías que domino. Diseñada con el propósito de darme a conocer al cliente.",
     "aguinagaDesc": "Proyecto trabajado en React para un laboratorio de vacunas. Aplicación escrita en su totalidad bajo el paradigma de componentes funcionales.",
     "pokemonDesc": "Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
+    "madeWith":"Esta página está desarrollada en",
     "aboutMe":"Acerca de mí",
     "aboutMeFirst":"Soy un desarrollador Front-end que reside en Perú. Tengo una pasión latente por lograr una exquisita interactividad con el usuario en el entorno web.",
     "aboutMeSecond":"Proactivo, con ganas de destruir el molde y probar cosas nuevas. Un fanático de la cultura asiática, la vida hogareña y la tecnología.",

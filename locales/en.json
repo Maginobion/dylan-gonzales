@@ -1,11 +1,13 @@
 {
     "description":"Fourth year university student. Ready to learn. Hardcore reader and lover of the natural and programming languages.",
+    "download":"Download CV",
     "techSubtitle": "Technologies",
     "projectSubtitle": "Projects",
     "foxbelDesc": "Spotify-like Vue Single Page Application that works under a reverse proxy to play Deezer song previews, fully responsive.",
     "portfolioDesc": "Page I made to showcase all of my projects and skills. Developed in order to make myself known to the client.",
     "aguinagaDesc": "Front-end of a Headless CMS project made with React for a vaccine lab.",
     "pokemonDesc": "Simple webpage that allows listing, searching, posting, editing and deleting pokemons that are called through an API.",
+    "madeWith":"This site was made with",
     "aboutMe":"About me",
     "aboutMeFirst":"I'm a Front-end developer who resides in Peru. With passion that guides me to achieve rich interaction with the user.",
     "aboutMeSecond":"Proactive, wishing to break the mold and try new stuff. A fan of asian culture, staying at home and enjoying technology.",
