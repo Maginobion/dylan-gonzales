@@ -2,11 +2,7 @@
     <div>
         <div class="uprightCont">
             <LangChanger/>
-            <button
-                :class="icon + ' themeSwitcher'" 
-                @click="$emit('change-theme')"
-                aria-label="theme button"
-            />         
+            <ThemeSwitcher/>
         </div>               
         <SideNav/>
         <div class="totalCenter">
@@ -14,14 +10,6 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-
-const a = defineProps<{
-    icon: string
-}>()
-
-</script>
 
 <style scoped>
 
@@ -31,10 +19,6 @@ const a = defineProps<{
     flex-direction: column;
     justify-items: center;
     align-items: center;
-}
-
-.themeSwitcher{
-    font-size: 1.875rem;
 }
 
 .uprightCont{

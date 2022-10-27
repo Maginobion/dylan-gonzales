@@ -5,7 +5,11 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 
+
 export default defineNuxtConfig({
+    app:{
+        pageTransition: { name: 'page', mode: 'out-in' }
+    },
     typescript:{
         shim: false
     },
@@ -13,9 +17,6 @@ export default defineNuxtConfig({
         '@unocss/nuxt',
         '@nuxt/image-edge',
     ],
-    app:{
-        pageTransition: { name: 'page', mode: 'out-in' }
-    },
     vite: {
         plugins: [
             VueI18nVitePlugin({

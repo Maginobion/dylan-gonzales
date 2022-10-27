@@ -1,10 +1,9 @@
 <template>
-  <NuxtLayout @change-theme="changeTheme" :icon="icon">
-    <NuxtPage :transition="{
-        name: 'bounce',
-        mode: 'out-in'
-      }"/>
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtPage/>
+    </NuxtLayout>
+  </div>
 </template>
 
 <script setup>
@@ -12,12 +11,9 @@ import { useI18n } from 'vue-i18n';
 
 const t = useI18n()
 
-const theme = ref('dark-mode')
+const config = useAppConfig()
 
-const icon = computed(()=>theme.value==='' ? 'i-clarity:sun-solid' : 'i-akar-icons:moon-fill')
-
-const changeTheme = () =>
-  theme.value==='' ? theme.value='dark-mode' : theme.value=''
+const theme = computed(()=>config.theme.dark ? 'dark-mode' : '')
 
 useHead({
   titleTemplate: (title) => title ? `Maginobion - ${title}` : 'Maginobion',
@@ -44,13 +40,6 @@ useHead({
   transition: 0.6s all;
 }
 
-.page-enter-active, .page-leave-active {
-  transition: all 0.4s;
-}
-.page-enter-from, .page-leave-to {
-  opacity: 0;
-  filter: blur(1rem);
-}
 
 @font-face {
   font-family: 'OpenSans';
