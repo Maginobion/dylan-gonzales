@@ -61,7 +61,7 @@ useHead({
   ],
 })
 
-const url = computed(()=>t.locale.value==="en" ? '/assets/files/[English]DylanGonzalesPortafolio.pdf' : '/assets/files/[Spanish]DylanGonzalesCV.pdf')
+const url = computed(()=>t.locale.value==="en" ? '/[English]DylanGonzalesPortafolio.pdf' : '/[Spanish]DylanGonzalesCV.pdf')
 
 </script>
 
