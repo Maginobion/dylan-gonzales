@@ -33,5 +33,6 @@
     "menu": ["Inicio","Acerca de mí","Proyectos","Contáctame"],
     "greetings":"¡Hola!",
     "introduction": "Soy Dylan Gonzales",
+    "developWith":"Desarrollo con",
     "working":"Y voy a presentarte mis proyectos... muy pronto."
 }

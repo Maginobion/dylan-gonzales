@@ -1,7 +1,8 @@
 <template>
     <div>
         <MainTitle/>
-        <p>{{$t('working')}}</p>
+        <p v-t="'working'"/>
+        <Falling/>
     </div>
 </template>
 

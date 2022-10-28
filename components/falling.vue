@@ -1,42 +1,50 @@
 <template>
     <div class="wrapper">
-        <p>Versátil usando</p>
+        <p v-t="'developWith'"/>
         <div class="words">
-            <span>Typescript</span>
-            <span>React</span>
-            <span>Laravel</span>
-            <span>Vue</span>
-            <span>Next</span>
-            <span>Express</span>
-            <span>Tailwind</span>
-            <span>Git</span>
-            <span>Python</span>
-            <span>Django</span>
-            <span>Spring</span>
-            <span>MySQL</span>
-            <span>Typescript</span>
+            <span v-for="tech of stack">{{tech}}</span>
         </div>
     </div>
 </template>
 
+<script setup>
+    const stack = [
+        'Typescript',
+        'React',
+        'Laravel',
+        'Vue',
+        'Next',
+        'Express',
+        'Tailwind',
+        'Git',
+        'Python',
+        'Django',
+        'Spring',
+        'MySQL',
+        'Typescript'
+    ]
+</script>
+
 <style scoped>
 .wrapper{
     box-sizing: content-box;
-    height: 40px;
+    height: 34px;
     display: flex;
-    padding: 50px 20px;
+    padding: 20px 0;
     font-size: 24px;
     cursor: default;
     user-select: none;
 }
 .words{
     overflow: hidden;
-
+}
+p{
+    margin: 0;
+    text-align: center;
 }
 span{
     display: block;
-    animation: spin 10s infinite;
-    height: 100%;
+    animation: spin 8.4s infinite;
     color: blueviolet;
     padding-left: 8px;
 }
@@ -78,12 +86,12 @@ span{
         transform: translateY(-1200%);
     }
 }
-</style>
 
-<script>
-export default {
-    setup() {
-        
-    },
+@media screen and (max-width:400px) {
+    .wrapper{
+        height: 22px;
+        padding: 20px 0;
+        font-size: 1em;
+    }
 }
-</script>
+</style>

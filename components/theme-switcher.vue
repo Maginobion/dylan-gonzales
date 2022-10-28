@@ -1,12 +1,12 @@
 <template>
     <button
-        :class="icon + ' themeSwitcher'" 
+        :class="icon" 
         @click="config.theme.dark=!config.theme.dark"
         aria-label="theme button"
     />       
 </template>
 
-<script setup lang="ts">
+<script setup>
 
 const config = useAppConfig()
 const icon = computed(()=> config.theme.dark ? 'i-akar-icons:moon-fill' : 'i-clarity:sun-solid')
@@ -14,7 +14,7 @@ const icon = computed(()=> config.theme.dark ? 'i-akar-icons:moon-fill' : 'i-cla
 </script>
 
 <style scoped>
-.themeSwitcher{
+button{
     font-size: 1.875rem;
 }
 </style>

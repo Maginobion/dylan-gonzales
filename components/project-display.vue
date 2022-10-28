@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-for="asd in data">
         <h4>{{asd.title}}</h4>
-        <p>{{$t(asd.description)}}</p>
+        <p v-t="asd.description"/>
         <div v-if="asd.repo">
             Repositorio: <NuxtLink :to="asd.repo">{{asd.repo}}</NuxtLink>
         </div>

@@ -1,5 +1,5 @@
 <template>
-    <form class="asd">
+    <form>
       <div class="container">
         <div class="inputBlock">       
           <input 
@@ -7,18 +7,20 @@
             :placeholder="$t(`contactName`)"
             name="name"
             id="name"
-            v-model="name">
-            <label for="name">{{$t("contactName")}}</label>
+            v-model="name"
+          >
+          <label for="name" v-t="'contactName'"/>
         </div>
         <div class="inputBlock">         
             <input 
-                type="text"
-                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
-                name="mail" 
-                :placeholder="$t(`contactEmail`)"
-                id="mail" 
-                v-model="email">
-            <label for="mail">{{$t("contactEmail")}}</label>
+              type="text"
+              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
+              name="mail" 
+              :placeholder="$t(`contactEmail`)"
+              id="mail" 
+              v-model="email"
+            >
+            <label for="mail" v-t="'contactEmail'"/>
         </div>
         <div class="inputBlock">         
           <input 
@@ -27,18 +29,19 @@
             :placeholder="$t(`contactSubject`)"
             id="subject" 
             v-model="subject">
-            <label for="subject">{{$t("contactSubject")}}</label>
+            <label for="subject" v-t="'contactSubject'"/>
         </div>
         <div class="inputBlock">          
             <textarea 
-                type="text" 
-                name="message" 
-                :placeholder="$t(`contactMessage`)"
-                id="message"               
-                v-model="message"/>
-            <label for="message">{{$t("contactMessage")}}</label>
+              type="text" 
+              name="message" 
+              :placeholder="$t(`contactMessage`)"
+              id="message"               
+              v-model="message"
+            />
+            <label for="message" v-t="'contactMessage'"/>
         </div>
-        <button @click.prevent="send">{{$t("contactButton")}}</button>
+        <button @click.prevent="send" v-t="'contactButton'"/>
         <div class="status">
             <ul>
                 <li class="errors" v-for="error in status">{{error}}</li>
@@ -51,8 +54,8 @@
 
 <style scoped>
 
-.asd{
-    padding: 2rem 8rem;
+form{
+  padding: 2rem 8rem;
 }
 
 .container{
@@ -169,6 +172,15 @@ textarea{
     }
 }
 
+@media screen and (max-width:800px) {
+  form{
+    padding: 2rem 0;
+  }
+  .container{
+    padding: 0;
+  }
+}
+
 </style>
 
 <script setup>
@@ -182,7 +194,8 @@ const message = ref('')
 const status = ref([])
 const success = ref('')
 
-const t = useI18n()
+const { t } = useI18n()
+
 watch(t.locale,()=>{
   status.value=[]
 })
@@ -204,11 +217,11 @@ const emailRegex = new RegExp(regexString,'g')
 
 const send = async () =>{
   status.value=[]
-  if(name.value==='') status.value.push(t.t('nameEmpty'))
-  if(email.value==='') status.value.push(t.t('emailEmpty'))
-  else if(!emailRegex.test(email.value)) status.value.push(t.t('emailError'))
-  if(subject.value==='') status.value.push(t.t('subjectEmpty'))
-  if(message.value==='') status.value.push(t.t('messageEmpty'))
+  if(name.value==='') status.value.push(t('nameEmpty'))
+  if(email.value==='') status.value.push(t('emailEmpty'))
+  else if(!emailRegex.test(email.value)) status.value.push(t('emailError'))
+  if(subject.value==='') status.value.push(t('subjectEmpty'))
+  if(message.value==='') status.value.push(t('messageEmpty'))
   if(status.value.length===0){
     const result = await $fetch('/api/mailer',{
       method: 'POST',
@@ -220,7 +233,7 @@ const send = async () =>{
       }
     }).catch(err=>console.log(err))
     const resultStatus = result.accepted.length>0 ?
-    t.t('sendingSuccess') : t.t('sendingError')
+    t('sendingSuccess') : t('sendingError')
     success.value = resultStatus
   }
 }

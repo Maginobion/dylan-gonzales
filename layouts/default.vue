@@ -31,4 +31,10 @@
     gap: 10px;
 }
 
+@media screen and (max-width:500px) {
+    .totalCenter{
+        padding: 10px 40px;
+    }
+}
+
 </style>

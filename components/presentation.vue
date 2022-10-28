@@ -1,21 +1,13 @@
 <template>
     <div class="container">
         <div class="card">
-            <h1 class="title">{{$t('aboutMe')}}</h1>
-            <p>
-                {{$t('aboutMeFirst')}}
-            </p>
-            <p>
-                {{$t('aboutMeSecond')}}
-            </p>
-            <p>
-                {{$t('aboutMeThird')}}
-            </p>
-            <p>
-                {{$t('aboutMeFourth')}}
-            </p>
+            <h1 class="title" v-t="'aboutMe'"/>
+            <p v-t="'aboutMeFirst'"/>
+            <p v-t="'aboutMeSecond'"/>
+            <p v-t="'aboutMeThird'"/>
+            <p v-t="'aboutMeFourth'"/>
         </div>
-        <NuxtLink to="/contact">{{$t('aboutMeButton')}}</NuxtLink>
+        <NuxtLink to="/contact" v-t="'aboutMeButton'"/>
     </div>
 </template>
 
@@ -29,7 +21,6 @@
     color: var(--mycolor);
     filter: drop-shadow(0 0 20px var(--mycolor));
     margin-bottom: 20px;
-    white-space: nowrap;
     transition: 0.6s all ease-in-out;
 }
 p{

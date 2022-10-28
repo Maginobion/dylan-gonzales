@@ -20,6 +20,12 @@
         filter: drop-shadow(10px 10px 50px var(--col));
         color: var(--col);
     }
+
+    @media screen and (max-width:450px) {
+        .letters{
+            font-size: 2em;
+        }
+    }
 </style>
 
 <script setup>
@@ -36,13 +42,8 @@ const randomColor = () =>{
 
 <template>
     <div class="letters pt-[100px] text-[50px]">
-        <span @mouseover="randomColor">{{$t('greetings')[0]}}</span>
-        <span @mouseover="randomColor">{{$t('greetings')[1]}}</span>
-        <span @mouseover="randomColor">{{$t('greetings')[2]}}</span>
-        <span @mouseover="randomColor">{{$t('greetings')[3]}}</span>
-        <span @mouseover="randomColor">{{$t('greetings')[4]}}</span>
-        <span @mouseover="randomColor">{{$t('greetings')[5]}}</span>
-        <p>{{$t('introduction')}}</p>
+        <span v-for="(letter,i) of $t('greetings')" @mouseover="randomColor" v-t="letter"/>
+        <p v-t="'introduction'"/>
     </div>
 </template>
 

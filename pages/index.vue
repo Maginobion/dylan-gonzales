@@ -13,8 +13,8 @@
                 <p class="ml-4">Frontend Developer</p>
             </div>
             <p class="mt-4" v-t="'description'"></p>
-            <a :href="url" download class="downloadButton">
-              <div class="i-ant-design:cloud-download-outlined text-3xl"/>{{$t("download")}}
+            <a class="downloadButton" :href="url" download>
+              <div class="i-ant-design:cloud-download-outlined text-3xl"/> <span v-t="'download'"/>
             </a> 
         </div>
         <nuxt-img 
@@ -30,11 +30,11 @@
         <TechDisplay/>
     </section>     
     <section>
-        <h4 class="headTitle">{{$t('projectSubtitle')}}</h4>
+        <h4 class="headTitle" v-t="'projectSubtitle'"/>
         <ProjectDisplay/>
     </section>
     <div class="nuxtlogo">
-      <span>{{$t("madeWith")}}</span> 
+      <span v-t="'madeWith'"/>
       <a href="https://v3.nuxtjs.org/" class="linkCont">
         <span>Nuxt 3</span>
         <img 
@@ -50,16 +50,16 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 
-const t = useI18n()
+const { locale } = useI18n()
 
 useHead({
   title: 'Home',
   meta: [
-    { name: 'description', content: 'My amazing site.' }
+    { name: 'description', content: `Time to showcase my skills. Let's start.` }
   ],
 })
 
-const url = computed(()=>t.locale.value==="en" ? '/[English]DylanGonzalesPortafolio.pdf' : '/[Spanish]DylanGonzalesCV.pdf')
+const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafolio.pdf' : '/[Spanish]DylanGonzalesCV.pdf')
 
 </script>
 

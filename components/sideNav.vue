@@ -8,10 +8,10 @@
     </EffectButton>
     <nav :class="{activeSideNav : isOpen}" class="sideNav">
         <ul class="navList">
-            <li><NuxtLink to="/" :data-label="$t(`menu[0]`)">{{$t("menu[0]")}}</NuxtLink></li>
-            <li><NuxtLink to="/about" :data-label="$t(`menu[1]`)">{{$t("menu[1]")}}</NuxtLink></li>
-            <li><NuxtLink to="/projects" :data-label="$t(`menu[2]`)">{{$t("menu[2]")}}</NuxtLink></li>
-            <li><NuxtLink to="/contact" :data-label="$t(`menu[3]`)">{{$t("menu[3]")}}</NuxtLink></li>
+            <li><NuxtLink to="/" :data-label="$t(`menu[0]`)" v-t="'menu[0]'"/></li>
+            <li><NuxtLink to="/about" :data-label="$t(`menu[1]`)" v-t="'menu[1]'"/></li>
+            <li><NuxtLink to="/projects" :data-label="$t(`menu[2]`)" v-t="'menu[2]'"/></li>
+            <li><NuxtLink to="/contact" :data-label="$t(`menu[3]`)" v-t="'menu[3]'"/></li>
         </ul>
         <div class="exitCont">
             <EffectButton 
