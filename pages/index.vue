@@ -12,9 +12,7 @@
                 />
                 <p class="ml-4">Frontend Developer</p>
             </div>
-            <p class="mt-4">
-              {{$t('description')}}
-            </p>
+            <p class="mt-4" v-t="'description'"></p>
             <a :href="url" download class="downloadButton">
               <div class="i-ant-design:cloud-download-outlined text-3xl"/>{{$t("download")}}
             </a> 
@@ -28,7 +26,7 @@
         />         
     </section> 
     <section>
-        <h4 class="headTitle">{{$t('techSubtitle')}}</h4>
+        <h4 class="headTitle" v-t="'techSubtitle'"/>
         <TechDisplay/>
     </section>     
     <section>
