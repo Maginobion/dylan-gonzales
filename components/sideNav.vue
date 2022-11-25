@@ -5,8 +5,8 @@
         aria-label="open navigation bar"
     >
         <i class="backButton i-charm:menu-hamburger text-3xl"></i>
-    </EffectButton>
-    <nav :class="{activeSideNav : isOpen}" class="sideNav">
+    </EffectButton>  
+    <nav :class="{activeSideNav : isOpen}" class="sideNav">       
         <ul class="navList">
             <li><NuxtLink to="/" :data-label="$t(`menu[0]`)" v-t="'menu[0]'"/></li>
             <li><NuxtLink to="/about" :data-label="$t(`menu[1]`)" v-t="'menu[1]'"/></li>
@@ -23,6 +23,7 @@
             </EffectButton>
         </div>       
     </nav>
+    <div class="fader"/>
 </template>
 
 <script setup>
@@ -38,26 +39,37 @@ const isOpen = ref(false)
     position: fixed;
 }
 
+.activeSideNav + .fader{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;    
+    width: 320px;
+    height: 100%; 
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease-in-out;
+}
+
 .backButton{
     padding: 0;
 }
 .sideNav {
     opacity: 0.8;
     height: 100%;
-    width: 0;
+    width: 320px;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 0;
     left: 0;
     background-color: var(--bg-secondary);
     overflow-x: hidden;
-    transition: 0.5s;
     padding-top: 60px;
-    transition: all 0.3 ease-in-out;
+    translate: -320px 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .activeSideNav{
-    width: 320px;
+    translate: 0;
 }
 
 .stylingCont{
@@ -142,9 +154,11 @@ ul{
 @media screen
 and (max-width: 1080px) {
     .activeSideNav{
-    width: 100%;
+        width: 100%;
     }
-    
+    .activeSideNav + .fader{
+        width: 100%;
+    }
 }
 
 </style>

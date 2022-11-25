@@ -1,15 +1,13 @@
 <template>
     <div class="buttonCont">
-        <button @click="locale='es'">ES</button>
-        <button @click="locale='en'">EN</button>
+        <button @click="locale='es'" :class="locale==='es'&&'active'">ES</button>
+        <button @click="locale='en'" :class="locale==='en'&&'active'">EN</button>
     </div>
 </template>
 
 <script setup>
 import { useI18n } from "vue-i18n";
-
-    const { locale } = useI18n()
-    console.log(locale.value)
+const { locale } = useI18n()
 </script>
 
 <style scoped>
@@ -36,6 +34,13 @@ import { useI18n } from "vue-i18n";
 
 button{
     border: 0;
+}
+
+button.active{
+    background-color: var(--bg);
+    padding: 4px 6px;
+    margin: 4px;
+    border-radius: 4px;
 }
 
 </style>

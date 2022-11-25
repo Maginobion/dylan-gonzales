@@ -2,7 +2,7 @@
     <div class="wrapper">
         <p v-t="'developWith'"/>
         <div class="words">
-            <span v-for="tech of stack">{{tech}}</span>
+            <span v-for="tech of stack" :key="tech">{{tech}}</span>
         </div>
     </div>
 </template>

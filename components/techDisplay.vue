@@ -8,12 +8,6 @@
 </template>
 
 <script setup lang="ts">
-// defineProps<{
-//     techStack: {
-//         class: string,
-//         label: string
-//     }[],
-// }>()
 
 const techStack = [
   {
