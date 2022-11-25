@@ -3,9 +3,13 @@
     --color-primary: #158876;
     --color-secondary: #0e2233;
     --source: url("~/assets/svg/nuxt.svg");
+    --slider-1: rgb(35, 145, 108);
+    --slider-2: rgba(20, 214, 149, 0.808);
+    --slider-3: rgba(40, 202, 148, 0.425);
     --bg: white;
     --bg-secondary: rgb(147, 137, 137);
     --bg-auxiliary: rgb(92, 169, 155);
+    --button: #FBD87F;
     --border-color: #ddd;
     --glow: rgb(78, 39, 235);
     --error-color: rgb(237, 38, 38);
@@ -17,9 +21,13 @@
     --color-primary: #41b38a;
     --color-secondary: #fdf9f3;
     --source: url("~/assets/svg/nuxt-white.svg");
+    --slider-1: rgb(35, 86, 145);
+    --slider-2: rgba(24, 27, 201, 0.801);
+    --slider-3: rgba(36, 39, 214, 0.486);
     --bg: #091a28;
     --bg-secondary: #0d2133;
     --bg-auxiliary: rgb(51, 98, 89);
+    --button: #0C6291;
     --border-color: #0d2538;
     --glow: greenyellow;
     --error-color: rgb(237, 38, 38);

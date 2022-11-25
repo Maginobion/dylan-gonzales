@@ -1,9 +1,16 @@
 <template>
     <div class="buttonCont">
-        <button @click="$i18n.locale='es'">ES</button>
-        <button @click="$i18n.locale='en'">EN</button>
+        <button @click="locale='es'">ES</button>
+        <button @click="locale='en'">EN</button>
     </div>
 </template>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+
+    const { locale } = useI18n()
+    console.log(locale.value)
+</script>
 
 <style scoped>
     

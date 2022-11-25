@@ -31,7 +31,9 @@
     </section>     
     <section>
         <h4 class="headTitle" v-t="'projectSubtitle'"/>
-        <ProjectDisplay/>
+        <div class="projectFlex">
+          <ProjectDisplay/>
+        </div>       
     </section>
     <div class="nuxtlogo">
       <span v-t="'madeWith'"/>
@@ -103,6 +105,7 @@ const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafoli
     padding: 12px 0;
   }
   section{
+    min-height: 42vh;
     padding: 20px auto;
   }
   .downloadButton{
@@ -116,6 +119,13 @@ const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafoli
     border-radius: 6px;
     color: var(--glow);
     background-color: var(--bg-auxiliary);
+  }
+  .projectFlex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 
   @media screen and (max-width: 1150px){

@@ -1,6 +1,6 @@
 <template>
     <div class="projects">
-        <div class="centered" v-for="tech in techStack" >
+        <div class="centered" v-for="tech in techStack" :key="tech.label">
             <div :class="tech.class + ' text-3xl'"/>
             <p>{{tech.label}}</p>
         </div>
@@ -25,24 +25,48 @@ const techStack = [
     label: 'CSS3'
   },
   {
+    class: 'i-bxl:javascript',
+    label: 'Javascript'
+  },
+  {
     class: 'i-bxl:typescript',
     label: 'Typescript'
   },
   {
     class: 'i-bxl:tailwind-css',
     label: 'Tailwind CSS'
+  }, 
+  {
+    class: 'i-file-icons:styledcomponents',
+    label: 'Styled Components'
   },
   {
-    class: 'i-akar-icons:javascript-fill',
-    label: 'Javascript'
+    class: 'i-akar-icons:node-fill',
+    label: 'Node JS'
+  },
+  {
+    class: 'i-simple-icons:mongodb',
+    label: 'MongoDB'
   },
   {
     class: 'i-akar-icons:react-fill',
     label: 'React'
   },
   {
+    class: 'i-file-icons:jest',
+    label: 'Jest'
+  },
+  {
+    class: 'i-simple-icons:testinglibrary',
+    label: 'RTL'
+  },
+  {
     class: 'i-akar-icons:vue-fill',
     label: 'Vue 3'
+  },
+  {
+    class: 'i-mdi:nuxt',
+    label: 'Nuxt'
   },
   {
     class: 'i-akar-icons:nextjs-fill',

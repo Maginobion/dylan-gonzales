@@ -16,6 +16,7 @@
     "unplugin-icons": "^0.14.11"
   },
   "dependencies": {
+    "@iconify-json/mdi": "^1.1.36",
     "@intlify/unplugin-vue-i18n": "^0.7.0",
     "@unocss/nuxt": "^0.45.29",
     "node-mailjet": "^5.1.1",

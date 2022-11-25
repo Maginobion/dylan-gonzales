@@ -44,7 +44,7 @@
         <button @click.prevent="send" v-t="'contactButton'"/>
         <div class="status">
             <ul>
-                <li class="errors" v-for="error in status">{{error}}</li>
+                <li class="errors" v-for="error in status" :key="error">{{error}}</li>
                 <li v-if="success" class="success">{{success}}</li>
             </ul> 
         </div> 
@@ -183,7 +183,7 @@ textarea{
 
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 
 
@@ -194,9 +194,9 @@ const message = ref('')
 const status = ref([])
 const success = ref('')
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-watch(t.locale,()=>{
+watch(locale,()=>{
   status.value=[]
 })
 watch(name,()=>{
@@ -215,7 +215,7 @@ watch(message,()=>{
 const regexString = '[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}'
 const emailRegex = new RegExp(regexString,'g')
 
-const send = async () =>{
+const send = async (): Promise<void> =>{
   status.value=[]
   if(name.value==='') status.value.push(t('nameEmpty'))
   if(email.value==='') status.value.push(t('emailEmpty'))

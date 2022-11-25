@@ -304,6 +304,13 @@
   resolved "https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.15.10.tgz#78a42897c2cf8db9fd5f1811f7590393b77774c7"
   integrity sha512-w0Ou3Z83LOYEkwaui2M8VwIp+nLi/NA60lBLMvaJ+vXVMcsARYdEzLNE7RSm4+lSg4zq4d7fAVuzk7PNQ5JFgg==
 
+"@iconify-json/mdi@^1.1.36":
+  version "1.1.36"
+  resolved "https://registry.yarnpkg.com/@iconify-json/mdi/-/mdi-1.1.36.tgz#ca9a45456f1272fa2394b1261da5e4c4ff8c1e70"
+  integrity sha512-3aWCVjDIseO8COo8zPkmxOZUFjdWsvTQQnk6zVrOaJh2K8oKuBznw10FSJZgQM7qAn6S54/oejyqkWfODRZV1Q==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify/json@^2.1.120":
   version "2.1.120"
   resolved "https://registry.yarnpkg.com/@iconify/json/-/json-2.1.120.tgz#ece70a4b766025f31d6966dc0e3af25c983e318c"

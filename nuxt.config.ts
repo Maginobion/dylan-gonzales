@@ -1,6 +1,5 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 
-import UnocssIcons from '@unocss/preset-icons'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'url'
 import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
@@ -34,7 +33,7 @@ export default defineNuxtConfig({
 
         // core options
         shortcuts: [],
-        rules: [],
+        rules:[],
     },
     runtimeConfig:{
         nodemaileruser: process.env.MAILTRAP_USERNAME,

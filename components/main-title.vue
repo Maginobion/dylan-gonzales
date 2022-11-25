@@ -29,6 +29,8 @@
 </style>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+
 
 const mycolor = ref('#'+(Math.random()*0xFFFFFF<<0).toString(16))
 
@@ -38,11 +40,21 @@ const randomColor = () =>{
     mycolor.value = randomizer()
 }
 
+const { t } = useI18n()
+
+const greetings = t('greetings')
+
 </script>
 
 <template>
-    <div class="letters pt-[100px] text-[50px]">
-        <span v-for="(letter,i) of $t('greetings')" @mouseover="randomColor" v-t="letter"/>
+    <div v-if="greetings" class="letters pt-[100px] text-[50px]">
+        <span            
+            v-for="(letter,i) of greetings"
+            :key="letter+i"
+            @mouseover="randomColor"           
+        >
+            {{letter}}
+        </span>
         <p v-t="'introduction'"/>
     </div>
 </template>
