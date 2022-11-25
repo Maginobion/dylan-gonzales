@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink v-if="content && link" :to="link">
+    <NuxtLink v-if="content && link" :to="link" target="_blank">
         <button>
             <div :class="classProp"/>
             {{content}}
@@ -20,7 +20,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        background: var(--button);
+        background-color: var(--button);
         border: none;
         padding: 6px 12px;
         border-radius: 4px;
@@ -29,5 +29,8 @@
     }
     a{
         text-decoration: none;
+    }
+    button:hover{
+        background-color: var(--button-hover);
     }
 </style>

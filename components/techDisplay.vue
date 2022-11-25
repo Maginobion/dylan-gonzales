@@ -1,13 +1,33 @@
 <template>
-    <div class="projects">
-        <div class="centered" v-for="tech in techStack" :key="tech.label">
-            <div :class="tech.class + ' text-3xl'"/>
-            <p>{{tech.label}}</p>
-        </div>
-    </div>   
+  <div class="projects">
+    <div class="centered" v-for="tech in techStack" :key="tech.label" ref="techRef">
+      <div :class="tech.class + ' text-4xl icon'"/>
+      <p>{{tech.label}}</p>
+    </div>
+  </div>   
 </template>
 
 <script setup lang="ts">
+
+const techRef = ref([])
+
+onMounted(async ()=>{
+  await nextTick()
+
+  const options = {
+      threshold: 0.4
+  }
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if(entry.isIntersecting) entry.target.classList.add('show')
+          else entry.target.classList.remove('show')
+      })
+  }, options)
+  techRef.value.forEach(section => {
+      observer.observe(section)
+  })
+})
+
 
 const techStack = [
   {
@@ -90,4 +110,20 @@ const techStack = [
     flex-direction: column;
     align-items: center;
 }
+.centered{
+  opacity: 0;
+  filter: blur(4px);
+  translate: -40% 0;
+  transition: none;
+  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+.centered.show{
+  opacity: 1;
+  filter: blur(0);
+  translate: 0;
+}
+.centered:hover{
+  color: var(--color-primary);
+}
+
 </style>

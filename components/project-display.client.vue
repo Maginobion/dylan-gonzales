@@ -1,44 +1,70 @@
 <template>
-    <article 
-        class="container" 
-        v-for="asd in data"
-        :key="asd.title"
+    <TransitionGroup
+        :appear="true"
+        :persisted="true"
+        name="asd"
     >
-        <span class="bg"></span>
-        <nuxt-img 
-            :src="asd.img" 
-            :alt="asd.alt"
-            class="image"
-        />
-        <div class="wholeContent">    
-            <h1>{{asd.title}}</h1>
-            <div class="techFlex">          
-                <div 
-                    v-for="logo in asd.stack" 
-                    :key="logo+asd.title"
-                    :class="'i-'+tech[logo]+' text-2xl'"
-                />
-            </div>
-            <div class="content">
-                <p v-t="asd.description"/>
-                <div class="buttonFlex">
-                    <LinkButton 
-                        :link="asd.repo"
-                        classProp="i-ant-design:github-filled text-2xl"
-                        content="Repo"
-                    /> 
-                    <LinkButton 
-                        :link="asd.live"
-                        classProp="i-fluent:live-20-regular text-2xl"
-                        content="Live"
-                    />  
+        <article
+            v-for="asd in data"
+            :key="asd.title"
+            class="projectCard"
+            ref="projectRef"
+        >
+            <span class="bg"></span>
+            <nuxt-img 
+                :src="asd.img" 
+                :alt="asd.alt"
+                class="image"
+            />
+            <div class="wholeContent">    
+                <h1>{{asd.title}}</h1>
+                <div class="techFlex">          
+                    <div 
+                        v-for="logo in asd.stack" 
+                        :key="logo+asd.title"
+                        :class="'i-'+tech[logo]+' text-2xl'"
+                    />
                 </div>
-            </div>
-        </div>       
-    </article>
+                <div class="content">
+                    <p v-t="asd.description"/>
+                    <div class="buttonFlex">
+                        <LinkButton 
+                            :link="asd.repo"
+                            classProp="i-ant-design:github-filled text-2xl"
+                            content="Repo"
+                        /> 
+                        <LinkButton 
+                            :link="asd.live"
+                            classProp="i-fluent:live-20-regular text-2xl"
+                            content="Live"
+                        />  
+                    </div>
+                </div>
+            </div>       
+        </article>
+    </TransitionGroup>
 </template>
 
-<script setup>
+<script setup lang="ts">
+
+const projectRef = ref([])
+
+onMounted(async()=>{
+    await nextTick()
+
+    const options = {
+        threshold: 0.3
+    }
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) entry.target.classList.add('show')
+            else entry.target.classList.remove('show')
+        })
+    }, options)
+    projectRef.value.forEach(section => {
+        observer.observe(section)
+    })
+})
 
 const tech = {
   react: 'akar-icons:react-fill',
@@ -103,17 +129,26 @@ const data = [
 </script>
 
 <style scoped>
-.container{
-    --position: -120px;
+.projectCard{
+    --opacity: 0.6;
     --duration: 0.4s;
+    opacity: 0;
+    translate: -80% 0;
+    filter: blur(4px);
     padding-left: 36px;
     border: 1px solid var(--color-primary);
     border-radius: 4px;
     margin: 10px auto;
     position: relative;
     width: 800px;
-    height: 460px;
-    overflow: hidden;  
+    height: 500px;
+    overflow: hidden;
+    transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out;
+}
+.projectCard.show{
+    opacity: 1;
+    filter: blur(0);
+    translate: 0;
 }
 .bg{
     transition: all var(--duration) ease-in-out;
@@ -125,10 +160,11 @@ const data = [
     position: absolute;
     z-index: -1;
     top: 0;
-    left: var(--position);
+    left: 0;
+    opacity: var(--opacity);
 }
-.container:hover .bg{
-    --position: 0px;
+.projectCard:hover .bg{
+    --opacity: 1;
 }
 
 .image{
@@ -152,11 +188,11 @@ const data = [
     transition: var(--duration) margin-left ease-in-out, var(--duration) height ease-in-out;
 }
 
-.container:hover .content{
+.projectCard:hover .content{
     height: 200px;
     margin-left: 20px;
 }
-.container:hover .wholeContent{
+.projectCard:hover .wholeContent{
     margin-left: 40px;
 }
 h1{
@@ -171,7 +207,7 @@ h1{
     h1{
         margin: 0;
     }
-    .container{
+    .projectCard{
         font-size: 0.8em;
         width: 80vw;
         height: min-content;
@@ -187,12 +223,18 @@ h1{
         width: initial;
         height: min-content;
     }
-    .container:hover .content{
+    .projectCard:hover .content{
         height: initial;
         margin-left: 0;
     }
-    .container:hover .wholeContent{
+    .projectCard:hover .wholeContent{
         margin-left: 0;
+    }
+}
+
+@media(prefers-reduced-motion){
+    .projectCard{
+        transition: none;
     }
 }
 </style>

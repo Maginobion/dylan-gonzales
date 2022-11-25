@@ -8,8 +8,10 @@
     --slider-3: rgba(40, 202, 148, 0.425);
     --bg: white;
     --bg-secondary: rgb(147, 137, 137);
-    --bg-auxiliary: rgb(92, 169, 155);
+    --bg-auxiliary: rgb(110, 236, 213);
+    --download-hover: rgb(64, 206, 180);
     --button: #FBD87F;
+    --button-hover: #d8a931;
     --border-color: #ddd;
     --glow: rgb(78, 39, 235);
     --error-color: rgb(237, 38, 38);
@@ -27,7 +29,9 @@
     --bg: #091a28;
     --bg-secondary: #0d2133;
     --bg-auxiliary: rgb(51, 98, 89);
+    --download-hover: rgb(29, 83, 73);
     --button: #0C6291;
+    --button-hover: #074d74;
     --border-color: #0d2538;
     --glow: greenyellow;
     --error-color: rgb(237, 38, 38);

@@ -38,16 +38,19 @@ const isOpen = ref(false)
 .opener{
     position: fixed;
 }
-
+.fader{
+    transition: all 0.3s ease-in-out;
+    width: 0;
+    height: 0;
+}
 .activeSideNav + .fader{
-    position: absolute;
+    position: fixed;
     z-index: 1;
     top: 0;
     left: 0;    
     width: 320px;
     height: 100%; 
     backdrop-filter: blur(4px);
-    transition: all 0.3s ease-in-out;
 }
 
 .backButton{

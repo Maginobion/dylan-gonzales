@@ -14,7 +14,6 @@
 <script setup>
 
 const config = useAppConfig()
-const icon = computed(()=> config.theme.dark ? 'i-akar-icons:moon-fill' : 'i-clarity:sun-solid')
 
 </script>
 

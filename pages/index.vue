@@ -119,6 +119,10 @@ const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafoli
     border-radius: 6px;
     color: var(--glow);
     background-color: var(--bg-auxiliary);
+    transition: 0.4s all ease-in-out;
+  }
+  .downloadButton:hover{
+    background-color: var(--download-hover);
   }
   .projectFlex{
     display: flex;
