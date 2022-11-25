@@ -40,17 +40,13 @@ const randomColor = () =>{
     mycolor.value = randomizer()
 }
 
-const { t } = useI18n()
-
-const greetings = t('greetings')
-
 </script>
 
 <template>
-    <div v-if="greetings" class="letters pt-[100px] text-[50px]">
-        <span            
-            v-for="(letter,i) of greetings"
-            :key="letter+i"
+    <div class="letters pt-[100px] text-[50px]">
+        <span
+            v-for="(letter,index) of $t('greetings')"
+            :key="letter+'-'+index"
             @mouseover="randomColor"           
         >
             {{letter}}
