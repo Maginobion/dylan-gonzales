@@ -61,7 +61,7 @@ const isOpen = ref(false)
     height: 100%;
     width: 320px;
     position: fixed;
-    z-index: 2;
+    z-index: 5;
     top: 0;
     left: 0;
     background-color: var(--bg-secondary);
@@ -127,6 +127,7 @@ ul{
     font-size: 25px;
     color: var(--color);
     position: relative;
+    transition: background-color 0.4s ease-in-out;
 }
 
 .navList a::before{
@@ -148,6 +149,10 @@ ul{
 
 .navList a:hover::before{
     width: 380px;
+}
+
+.router-link-exact-active{
+    background-color: var(--button-hover);
 }
 
 .iconCont:hover{

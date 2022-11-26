@@ -12,7 +12,7 @@
     --download-hover: rgb(64, 206, 180);
     --button: #FBD87F;
     --button-hover: #d8a931;
-    --border-color: #ddd;
+    --border-color: rgb(21, 105, 131);
     --glow: rgb(78, 39, 235);
     --error-color: rgb(237, 38, 38);
     --success-color: rgb(75, 229, 75);
@@ -32,7 +32,7 @@
     --download-hover: rgb(29, 83, 73);
     --button: #0C6291;
     --button-hover: #074d74;
-    --border-color: #0d2538;
+    --border-color: #e2d137;
     --glow: greenyellow;
     --error-color: rgb(237, 38, 38);
     --success-color: lightgreen;

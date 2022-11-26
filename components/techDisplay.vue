@@ -115,7 +115,7 @@ const techStack = [
   filter: blur(4px);
   translate: -40% 0;
   transition: none;
-  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out, color 0.1s ease-in-out;
 }
 .centered.show{
   opacity: 1;

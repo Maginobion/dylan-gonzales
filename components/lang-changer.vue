@@ -1,7 +1,17 @@
 <template>
-    <div class="buttonCont">
-        <button @click="locale='es'" :class="locale==='es'&&'active'">ES</button>
-        <button @click="locale='en'" :class="locale==='en'&&'active'">EN</button>
+    <div>
+        <input 
+            id="lang" 
+            type="checkbox"
+            @click="locale==='es' ? locale='en' : locale='es'"
+        >
+        <span class="selected"/>
+        <label for="lang">
+            <div class="bg">
+                <span>ES</span>
+                <span>EN</span>
+            </div>
+        </label>
     </div>
 </template>
 
@@ -11,36 +21,39 @@ const { locale } = useI18n()
 </script>
 
 <style scoped>
-    
-.buttonCont{
+
+#lang{
+    display: none;
+}
+label{
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    margin: 2px 8px 2px 2px;
+    background-color: var(--color-primary);
+    padding: 4px 5px;
+    border-radius: 100px;
 }
-
-.buttonCont button{
-    font-size: 1rem;
-    background-color: transparent;
-    color: var(--color);
+label span{
+    color: var(--bg);
+    z-index: 2;
 }
-
-.buttonCont button:hover{
-    color: var(--color-primary);
+.bg{
+    display: flex;
+    gap: 8px;
+    z-index: 0;
 }
-
-.buttonCont button + button {
-    border-left: 1px solid var(--color);
+.selected{
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    z-index: 0;
+    top: 4px;
+    background-color: var(--border-color);
+    border-radius: 100px;
+    translate: 3px 5px;
+    transition: translate 0.4s ease-in-out;
 }
-
-button{
-    border: 0;
-}
-
-button.active{
-    background-color: var(--bg);
-    padding: 4px 6px;
-    margin: 4px;
-    border-radius: 4px;
+#lang:checked + .selected{
+    translate: 30px 5px;
 }
 
 </style>

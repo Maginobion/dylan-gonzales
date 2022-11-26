@@ -27,11 +27,11 @@ label{
     overflow: hidden;
     gap: 10px;
     position: absolute;
-    translate: 40px 20px;
+    translate: 34px 20px;
     transition: 0.4s all ease-in-out;
     color: black;
 }
 label.dark{
-    translate: 40px -20px;
+    translate: 34px -20px;
 }
 </style>

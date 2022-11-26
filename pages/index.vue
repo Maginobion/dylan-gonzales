@@ -129,7 +129,7 @@ const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafoli
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
   }
 
   @media screen and (max-width: 1150px){

@@ -53,7 +53,7 @@ onMounted(async()=>{
     await nextTick()
 
     const options = {
-        threshold: 0.3
+        threshold: 0.2
     }
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -138,7 +138,6 @@ const data = [
     padding-left: 36px;
     border: 1px solid var(--color-primary);
     border-radius: 4px;
-    margin: 10px auto;
     position: relative;
     width: 800px;
     height: 500px;

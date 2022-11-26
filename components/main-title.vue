@@ -29,12 +29,10 @@
 </style>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-
-
-const mycolor = ref('#'+(Math.random()*0xFFFFFF<<0).toString(16))
 
 const randomizer = () =>    "hsl(" + 360 * Math.random() + ',' +(25 + 70 * Math.random()) + '%,' + (55 + 10 * Math.random()) + '%)'
+
+const mycolor = ref(randomizer())
 
 const randomColor = () =>{
     mycolor.value = randomizer()
