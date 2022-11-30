@@ -40,10 +40,4 @@ useHead({
   transition: 0.6s all;
 }
 
-
-@font-face {
-  font-family: 'OpenSans';
-  src: local('Open Sans'), local('OpenSans'), local('Open-Sans'), url('~/assets/fonts/OpenSans.ttf');
-  font-display: swap;
-}
 </style>

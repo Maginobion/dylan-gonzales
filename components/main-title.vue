@@ -6,19 +6,33 @@
         margin-left: -8px;
         cursor: default;
         user-select: none;
-        -webkit-transition: all 150ms ease-in-out;
-        -moz-transition: all 150ms ease-in-out;
-        -o-transition: all 150ms ease-in-out;
-        transition: all 150ms ease-in-out;
+        animation: out 1s ease-in-out both;
     }
 
     .letters span:hover{
-        -webkit-transition: all 150ms ease-in-out;
-        -moz-transition: all 150ms ease-in-out;
-        -o-transition: all 150ms ease-in-out;
-        transition: all 150ms ease-in-out;
-        filter: drop-shadow(10px 10px 50px var(--col));
-        color: var(--col);
+        animation: on 0.4s ease-in-out both;
+    }
+
+    @keyframes on{
+        from{
+            filter: none;
+            color: inherit;
+        }
+        to{
+            filter: drop-shadow(10px 10px 50px var(--col));
+            color: var(--col);
+        }
+    }
+
+    @keyframes out{
+        from{
+            filter: drop-shadow(10px 10px 50px var(--col));
+            color: var(--col);
+        }
+        to{
+            filter: none;
+            color: inherit;
+        }       
     }
 
     @media screen and (max-width:450px) {
@@ -30,7 +44,7 @@
 
 <script setup>
 
-const randomizer = () =>    "hsl(" + 360 * Math.random() + ',' +(25 + 70 * Math.random()) + '%,' + (55 + 10 * Math.random()) + '%)'
+const randomizer = () => "hsl(" + 360 * Math.random() + ',' +(25 + 70 * Math.random()) + '%,' + (55 + 10 * Math.random()) + '%)'
 
 const mycolor = ref(randomizer())
 

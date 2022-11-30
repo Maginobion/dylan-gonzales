@@ -114,8 +114,8 @@ const techStack = [
   opacity: 0;
   filter: blur(4px);
   translate: -40% 0;
-  transition: none;
-  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out, color 0.1s ease-in-out;
+  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out;
+  animation: out 2.4s ease-in-out both;
 }
 .centered.show{
   opacity: 1;
@@ -123,7 +123,25 @@ const techStack = [
   translate: 0;
 }
 .centered:hover{
-  color: var(--color-primary);
+  animation: in 0.1s ease-in-out both;
+}
+
+@keyframes out{
+  from{
+    color: var(--slider-1);
+  }
+  to{
+    color: inherit;
+  }
+}
+
+@keyframes in{
+  from{
+    color: inherit;
+  }
+  to{
+    color: var(--slider-1);
+  }
 }
 
 </style>

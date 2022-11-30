@@ -1,9 +1,5 @@
 <template>
-    <TransitionGroup
-        :appear="true"
-        :persisted="true"
-        name="asd"
-    >
+    
         <article
             v-for="asd in data"
             :key="asd.title"
@@ -42,7 +38,6 @@
                 </div>
             </div>       
         </article>
-    </TransitionGroup>
 </template>
 
 <script setup lang="ts">

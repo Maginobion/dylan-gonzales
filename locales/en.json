@@ -5,7 +5,7 @@
     "projectSubtitle": "Projects",
     "foxbelDesc": "Spotify-like Vue Single Page Application that works under a reverse proxy to play Deezer song previews, fully responsive.",
     "portfolioDesc": "Page I made to showcase all of my projects and skills. Developed in order to make myself known to the client.",
-    "aguinagaDesc": "Front-end of a Headless CMS project made with React for a vaccine lab.",
+    "aguinagaDesc": "Front-end of a Headless CMS project made with React and Next for a vaccine lab. Fully implemented with Typescript.",
     "pokemonDesc": "Simple webpage that allows listing, searching, posting, editing and deleting pokemons that are called through an API.",
     "madeWith":"This site was made with",
     "aboutMe":"About me",

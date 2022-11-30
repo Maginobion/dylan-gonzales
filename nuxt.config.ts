@@ -21,9 +21,9 @@ export default defineNuxtConfig({
             VueI18nVitePlugin({
                 include: [
                     resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
-                ]
+                ],
             })
-        ]
+        ],      
     },
     unocss:{
         // presets
@@ -39,5 +39,6 @@ export default defineNuxtConfig({
         nodemaileruser: process.env.MAILTRAP_USERNAME,
         nodemailerpass: process.env.MAILTRAP_PASSWORD
     },
-    css: ['@/assets/css/styles.css']
+    css: ['@/assets/css/styles.css'],
+    
 })

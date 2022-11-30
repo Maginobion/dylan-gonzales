@@ -61,7 +61,7 @@ useHead({
   ],
 })
 
-const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafolio.pdf' : '/[Spanish]DylanGonzalesCV.pdf')
+const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesResume.pdf' : '/[Spanish]DylanGonzalesCV.pdf')
 
 </script>
 
@@ -88,7 +88,7 @@ const url = computed(()=>locale.value==="en" ? '/[English]DylanGonzalesPortafoli
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 32px 0 16px 0;
     gap: 4px;
   }
   .linkCont{
