@@ -8,10 +8,10 @@
     </EffectButton>  
     <nav :class="{activeSideNav : isOpen}" class="sideNav">       
         <ul class="navList">
-            <li><NuxtLink to="/" :data-label="$t(`menu[0]`)" v-t="'menu[0]'"/></li>
-            <li><NuxtLink to="/about" :data-label="$t(`menu[1]`)" v-t="'menu[1]'"/></li>
-            <li><NuxtLink to="/projects" :data-label="$t(`menu[2]`)" v-t="'menu[2]'"/></li>
-            <li><NuxtLink to="/contact" :data-label="$t(`menu[3]`)" v-t="'menu[3]'"/></li>
+            <li><NuxtLink :to="localePath('/')" :data-label="$t(`menu[0]`)" v-t="'menu[0]'"/></li>
+            <li><NuxtLink :to="localePath('/about')" :data-label="$t(`menu[1]`)" v-t="'menu[1]'"/></li>
+            <li><NuxtLink :to="localePath('/projects')" :data-label="$t(`menu[2]`)" v-t="'menu[2]'"/></li>
+            <li><NuxtLink :to="localePath('/contact')" :data-label="$t(`menu[3]`)" v-t="'menu[3]'"/></li>
         </ul>
         <div class="exitCont">
             <EffectButton 
@@ -29,6 +29,7 @@
 <script setup>
 
 const isOpen = ref(false)
+const localePath = useLocalePath()
 
 </script>
 

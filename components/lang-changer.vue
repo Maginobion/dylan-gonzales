@@ -3,21 +3,25 @@
         <input 
             id="lang" 
             type="checkbox"
-            @click="locale==='es' ? locale='en' : locale='es'"
+            :checked="locale==='es'"
+            @click="locale==='en' ? push(switchLocalePath('es')) : push(switchLocalePath('en'))"
         >
         <span class="selected"/>
         <label for="lang">
             <div class="bg">
-                <span>ES</span>
                 <span>EN</span>
+                <span>ES</span>
             </div>
         </label>
     </div>
 </template>
 
 <script setup>
-import { useI18n } from "vue-i18n";
+
+const switchLocalePath = useSwitchLocalePath()
 const { locale } = useI18n()
+const { push } = useRouter()
+
 </script>
 
 <style scoped>
