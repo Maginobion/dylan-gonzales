@@ -1,7 +1,11 @@
 <template>
   <div>
     <NuxtLayout>
-      <NuxtPage/>
+      <NuxtPage :transition="{
+        name: 'page',
+        mode: 'out-in',
+        onBeforeEnter
+      }"/>
     </NuxtLayout>
   </div>
 </template>
@@ -10,6 +14,10 @@
 import { useI18n } from 'vue-i18n';
 
 const t = useI18n()
+
+const onBeforeEnter = async () => {
+  await t.finalizePendingLocaleChange()
+}
 
 const config = useAppConfig()
 
