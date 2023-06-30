@@ -31,18 +31,6 @@ onMounted(async ()=>{
 
 const techStack = [
   {
-    class: 'i-ant-design:html5-filled',
-    label: 'HTML5'
-  },
-  {
-    class: 'i-bxl:css3',
-    label: 'CSS3'
-  },
-  {
-    class: 'i-bxl:javascript',
-    label: 'Javascript'
-  },
-  {
     class: 'i-bxl:typescript',
     label: 'Typescript'
   },
@@ -85,6 +73,18 @@ const techStack = [
   {
     class: 'i-akar-icons:nextjs-fill',
     label: 'Next.js'
+  },
+  {
+    class: 'i-mdi:docker',
+    label: 'Docker'
+  },
+  {
+    class: 'i-mdi:google-cloud',
+    label: 'Google Cloud'
+  },
+  {
+    class: 'i-mdi:aws',
+    label: 'AWS'
   },
   {
     class: 'i-cib:laravel',
