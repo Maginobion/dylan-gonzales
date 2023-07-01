@@ -1,47 +1,47 @@
 <template>
     <div>
       <section class="infoContainer">
-          <div class='w-[560px] p-4'>
-              <div class="flex items-center">
-                  <nuxt-img 
-                    src="/myName.svg" 
-                    width=260px 
-                    height=63.63px
-                    placeholder
-                    alt="Dylan Gonzales Logotype"
-                  />
-                  <p class="ml-4">Software Engineer</p>
-              </div>
-              <p class="mt-4" v-t="'description'"></p>
-              <a class="downloadButton" :href="url" download>
-                <span class="i-ant-design:cloud-download-outlined text-3xl"/> <span v-t="'download'"/>
-              </a> 
+        <div class='w-[560px] p-4 mt-12'>
+          <div class="flex items-center">
+            <nuxt-img 
+              src="/myName.svg" 
+              width=260px 
+              height=63.63px
+              placeholder
+              alt="Dylan Gonzales Logotype"
+            />
+            <p class="ml-4">Software Engineer</p>
           </div>
-          <div class="profile">
-            <div class="circle">
-              <nuxt-img
-                src="/selfie.webp"
-                width="260px"
-                height="260px"
-                alt="Dylan Gonzales Portrait"
-                class="selfie"
+          <p class="mt-4" v-t="'description'"></p>
+          <a class="downloadButton" :href="url" download>
+            <span class="i-ant-design:cloud-download-outlined text-3xl"/> <span v-t="'download'"/>
+          </a> 
+        </div>
+        <div class="profile">
+          <div class="circle">
+            <nuxt-img
+              src="/selfie.webp"
+              width="260px"
+              height="260px"
+              alt="Dylan Gonzales Portrait"
+              class="selfie"
+            />
+            <div class="bubbles">
+              <a 
+                class="bubble bubble-left i-mdi:linkedin" 
+                href="https://www.linkedin.com/in/conexiondirecta/"
               />
-              <div class="bubbles">
-                <a 
-                  class="bubble bubble-left i-mdi:linkedin" 
-                  href="https://www.linkedin.com/in/conexiondirecta/"
-                />
-                <a 
-                  class="bubble bubble-center i-mdi:github-box"
-                  href="https://github.com/Maginobion"
-                />
-                <NuxtLink
-                  :to="localePath('/contact')" 
-                  class="bubble bubble-right i-mdi:email-fast"
-                />
-              </div>
+              <a 
+                class="bubble bubble-center i-mdi:github-box"
+                href="https://github.com/Maginobion"
+              />
+              <NuxtLink
+                :to="localePath('/contact')" 
+                class="bubble bubble-right i-mdi:email-fast"
+              />
             </div>
           </div>
+        </div>
       </section> 
       <section>
           <h4 class="headTitle" v-t="'techSubtitle'"/>
