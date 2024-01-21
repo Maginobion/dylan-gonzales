@@ -2,7 +2,7 @@
   <div class="projects">
     <div class="centered" v-for="tech in techStack" :key="tech.label" ref="techRef">
       <div :class="tech.class + ' text-4xl icon'"/>
-      <p>{{tech.label}}</p>
+      <p class="select-none">{{tech.label}}</p>
     </div>
   </div>   
 </template>
@@ -39,8 +39,8 @@ const techStack = [
     label: 'Tailwind CSS'
   }, 
 {
-    class: 'i-file-icons:styledcomponents',
-    label: 'Styled Components'
+    class: 'i-file-icons:nestjs',
+    label: 'Nest JS'
   },
   {
     class: 'i-akar-icons:node-fill',
@@ -87,8 +87,8 @@ const techStack = [
     label: 'AWS'
   },
   {
-    class: 'i-cib:laravel',
-    label: 'Laravel'
+    class: 'i-simple-icons:datadog',
+    label: 'Datadog'
   },
 ]
 
