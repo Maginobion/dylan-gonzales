@@ -22,12 +22,12 @@ export default defineNuxtConfig({
             langDir: 'locales',
             locales: [
                 {
-                    code:'en',
+                    code: 'en',
                     iso: 'en-US',
                     file: 'en-US.json', 
                 },
                 {
-                    code:'es',
+                    code: 'es',
                     iso: 'es-ES',
                     file: 'es-ES.json', 
                 }, 

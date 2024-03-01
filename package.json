@@ -14,7 +14,7 @@
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxtjs/i18n": "^8.0.0-beta.12",
     "@types/node": "^18",
-    "nuxt": "^3.6.1"
+    "nuxt": "^3.10.3"
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.1.52",
