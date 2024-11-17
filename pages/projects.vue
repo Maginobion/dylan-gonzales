@@ -10,7 +10,7 @@
 useHead({
     title: 'Projects',
     meta: [
-        { name: 'Projects', content: 'My amazing projects.' }
+        { name: 'Projects', content:`Some projects I've worked in - Coming soon.` }
     ],
 })
 </script>

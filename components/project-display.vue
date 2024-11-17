@@ -1,36 +1,37 @@
 <template>
     
         <article
-            v-for="asd in data"
-            :key="asd.title"
+            v-for="cardData in cardsData"
+            v-once
+            :key="cardData.title"
             class="projectCard"
             ref="projectRef"
         >
             <span class="bg"></span>
             <nuxt-img 
-                :src="asd.img" 
-                :alt="asd.alt"
+                :src="cardData.img" 
+                :alt="cardData.alt"
                 class="image"
             />
             <div class="wholeContent">    
-                <h1>{{asd.title}}</h1>
+                <h1>{{cardData.title}}</h1>
                 <div class="techFlex">          
                     <div 
-                        v-for="logo in asd.stack" 
-                        :key="logo+asd.title"
+                        v-for="logo in cardData.stack" 
+                        :key="logo+cardData.title"
                         :class="'i-'+tech[logo]+' text-2xl'"
                     />
                 </div>
                 <div class="content">
-                    <p v-t="asd.description"/>
+                    <p v-t="cardData.description"/>
                     <div class="buttonFlex">
                         <LinkButton 
-                            :link="asd.repo"
+                            :link="cardData.repo"
                             classProp="i-ant-design:github-filled text-2xl"
                             content="Repo"
                         /> 
                         <LinkButton 
-                            :link="asd.live"
+                            :link="cardData.live"
                             classProp="i-fluent:live-20-regular text-2xl"
                             content="Live"
                         />  
@@ -61,7 +62,19 @@ onMounted(async()=>{
     })
 })
 
-const tech = {
+type Frameworks = {
+  react: string;
+  rtl: string;
+  next: string;
+  tailwind: string;
+  jest: string;
+  nuxt: string;
+  laravel: string;
+  vue: string;
+  [key: string]: string; // Index signature
+};
+
+const tech : Frameworks = {
   react: 'akar-icons:react-fill',
   rtl: 'simple-icons:testinglibrary',
   next: 'akar-icons:nextjs-fill',
@@ -72,7 +85,7 @@ const tech = {
   vue: 'akar-icons:vue-fill'
 }
 
-const data = [
+const cardsData = [
     {
         title:"Foxbel Music",
         description:"foxbelDesc",
@@ -180,6 +193,10 @@ const data = [
 }
 .wholeContent{
     transition: var(--duration) margin-left ease-in-out, var(--duration) height ease-in-out;
+}
+
+.wholeContent h1{
+    margin-bottom: 0.5em;    
 }
 
 .projectCard:hover .content{

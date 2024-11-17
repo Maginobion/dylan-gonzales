@@ -72,7 +72,7 @@ h1::after{
 useHead({
     title: 'Contact',
     meta: [
-        { name: 'Contact', content: 'My contact information.' }
+        { name: 'Contact', content: 'Drop me a line. Are you ready for showtime?' }
     ],
 })
 

@@ -12,15 +12,14 @@
           <label for="name" v-t="'contactName'"/>
         </div>
         <div class="inputBlock">         
-            <input 
-              type="text"
-              pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
-              name="mail" 
-              :placeholder="$t(`contactEmail`)"
-              id="mail" 
-              v-model="email"
-            >
-            <label for="mail" v-t="'contactEmail'"/>
+          <input
+            type="email"
+            name="mail"
+            :placeholder="$t(`contactEmail`)"
+            id="mail"
+            v-model="email"
+          >
+          <label for="mail" v-t="'contactEmail'"/>
         </div>
         <div class="inputBlock">         
           <input 
@@ -184,14 +183,12 @@ textarea{
 </style>
 
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-
 
 const name = ref('')
 const email = ref('')
 const subject = ref('')
 const message = ref('')
-const status = ref([])
+const status = ref<string[]>([])
 const success = ref('')
 
 const { t, locale } = useI18n()
@@ -212,30 +209,33 @@ watch(message,()=>{
   status.value=[]
 })
 
-const regexString = '[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}'
-const emailRegex = new RegExp(regexString,'g')
+const regexString = `[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z0-9]{2,}`;
+const emailRegex = new RegExp(regexString, 'g');
 
 const send = async (): Promise<void> =>{
-  status.value=[]
+  status.value = []
+
   if(name.value==='') status.value.push(t('nameEmpty'))
   if(email.value==='') status.value.push(t('emailEmpty'))
   else if(!emailRegex.test(email.value)) status.value.push(t('emailError'))
   if(subject.value==='') status.value.push(t('subjectEmpty'))
   if(message.value==='') status.value.push(t('messageEmpty'))
-  if(status.value.length===0){
-    const result = await $fetch('/api/mailer',{
-      method: 'POST',
-      body:{
-        name: name.value,
-        email: email.value,
-        text: message.value,
-        subject: subject.value
-      }
-    }).catch(err=>console.log(err))
-    const resultStatus = result.accepted.length>0 ?
-    t('sendingSuccess') : t('sendingError')
-    success.value = resultStatus
-  }
+
+  if(status.value.length > 0) return 
+
+  const result = await $fetch('/api/mailer',{
+    method: 'POST',
+    body:{
+      name: name.value,
+      email: email.value,
+      text: message.value,
+      subject: subject.value
+    }
+  })
+  
+  const resultStatus = result.accepted.length>0 ?
+  t('sendingSuccess') : t('sendingError')
+  success.value = resultStatus
 }
 
 </script>

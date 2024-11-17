@@ -6,7 +6,7 @@
 useHead({
   title: 'About me',
   meta: [
-    { name: 'About me', content: 'Personal information.' }
+    { name: 'About me', content: 'Some personal info to know us better.' }
   ],
 })
 

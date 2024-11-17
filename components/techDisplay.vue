@@ -2,7 +2,7 @@
   <div class="projects">
     <div class="centered" v-for="tech in techStack" :key="tech.label" ref="techRef">
       <div :class="tech.class + ' text-4xl icon'"/>
-      <p>{{tech.label}}</p>
+      <p class="select-none">{{tech.label}}</p>
     </div>
   </div>   
 </template>
@@ -15,33 +15,21 @@ onMounted(async ()=>{
   await nextTick()
 
   const options = {
-      threshold: 0.4
+    threshold: 0.4
   }
   const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if(entry.isIntersecting) entry.target.classList.add('show')
-          else entry.target.classList.remove('show')
-      })
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('show')
+      else entry.target.classList.remove('show')
+    })
   }, options)
   techRef.value.forEach(section => {
-      observer.observe(section)
+    observer.observe(section)
   })
 })
 
 
 const techStack = [
-  {
-    class: 'i-ant-design:html5-filled',
-    label: 'HTML5'
-  },
-  {
-    class: 'i-bxl:css3',
-    label: 'CSS3'
-  },
-  {
-    class: 'i-bxl:javascript',
-    label: 'Javascript'
-  },
   {
     class: 'i-bxl:typescript',
     label: 'Typescript'
@@ -50,9 +38,9 @@ const techStack = [
     class: 'i-bxl:tailwind-css',
     label: 'Tailwind CSS'
   }, 
-  {
-    class: 'i-file-icons:styledcomponents',
-    label: 'Styled Components'
+{
+    class: 'i-file-icons:nestjs',
+    label: 'Nest JS'
   },
   {
     class: 'i-akar-icons:node-fill',
@@ -87,8 +75,20 @@ const techStack = [
     label: 'Next.js'
   },
   {
-    class: 'i-cib:laravel',
-    label: 'Laravel'
+    class: 'i-mdi:docker',
+    label: 'Docker'
+  },
+  {
+    class: 'i-mdi:google-cloud',
+    label: 'Google Cloud'
+  },
+  {
+    class: 'i-mdi:aws',
+    label: 'AWS'
+  },
+  {
+    class: 'i-simple-icons:datadog',
+    label: 'Datadog'
   },
 ]
 
