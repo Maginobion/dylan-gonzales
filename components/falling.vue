@@ -14,15 +14,13 @@
         'Laravel',
         'Vue',
         'Next',
-        'NestJS',
         'Express',
         'Tailwind',
         'Git',
         'Python',
-        'SQL',
-        'NoSQL',
-        'Spring',        
-        'Datadog',
+        'Django',
+        'Spring',
+        'MySQL',
         'Typescript'
     ]
 </script>
@@ -46,52 +44,46 @@ p{
 }
 span{
     display: block;
-    animation: spin 8.5s infinite;
+    animation: spin 8.4s infinite;
     color: blueviolet;
     padding-left: 8px;
 }
 @keyframes spin{
-    7.14%{
+    8.3%{
         transform: translateY(-100%);
     }
-    14.28%{
+    16.6%{
         transform: translateY(-200%);
     }
-    21.42%{
+    24.9%{
         transform: translateY(-300%);
     }
-    28.57%{
+    33.2%{
         transform: translateY(-400%);
     }
-    35.71%{
+    41.5%{
         transform: translateY(-500%);
     }
-    42.85%{
+    49.8%{
         transform: translateY(-600%);
     }
-    50%{
+    58.1%{
         transform: translateY(-700%);
     }
-    57.14%{
+    66.4%{
         transform: translateY(-800%);
     }
-    64.28%{
+    74.7%{
         transform: translateY(-900%);
     }
-    71.42%{
+    83%{
         transform: translateY(-1000%);
     }
-    78.57%{
+    91.3%{
         transform: translateY(-1100%);
     }
-    85.71%{
-        transform: translateY(-1200%);
-    }
-    92.85%{
-        transform: translateY(-1300%);
-    }
     100%{
-        transform: translateY(-1400%);
+        transform: translateY(-1200%);
     }
 }
 

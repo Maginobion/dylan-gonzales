@@ -1,13 +1,14 @@
-# nuxt-portfolio
-V2 of my portfolio, made with Nuxt 3.
+# Nuxt Minimal Starter
+
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
-Make sure to install the dependencies (I recommend using yarn):
+The package manager for this project is pnpm. Make sure to install dependencies:
 
 ```bash
-# yarn
-yarn install
+pnpm install
+
 ```
 
 ## Development Server
@@ -15,8 +16,7 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# yarn
-yarn dev
+pnpm dev
 ```
 
 ## Production
@@ -24,15 +24,14 @@ yarn dev
 Build the application for production:
 
 ```bash
-# yarn
-yarn build
+pnpm build
 ```
 
 Locally preview production build:
 
 ```bash
-# yarn
-yarn preview
+# pnpm
+pnpm preview
 ```
 
-Check out my [LinkedIn](https://www.linkedin.com/in/conexiondirecta/) too.
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

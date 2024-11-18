@@ -1,147 +1,147 @@
 <template>
   <div class="projects">
-    <div class="centered" v-for="tech in techStack" :key="tech.label" ref="techRef">
-      <div :class="tech.class + ' text-4xl icon'"/>
-      <p class="select-none">{{tech.label}}</p>
+    <div
+      class="centered"
+      v-for="tech in techStack"
+      :key="tech.label"
+      ref="techRef"
+    >
+      <div :class="tech.class + ' text-4xl icon'" />
+      <p>{{ tech.label }}</p>
     </div>
-  </div>   
+  </div>
 </template>
 
 <script setup lang="ts">
+const techRef = ref([]);
 
-const techRef = ref([])
-
-onMounted(async ()=>{
-  await nextTick()
+onMounted(async () => {
+  await nextTick();
 
   const options = {
-    threshold: 0.4
-  }
+    threshold: 0.4,
+  };
   const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting) entry.target.classList.add('show')
-      else entry.target.classList.remove('show')
-    })
-  }, options)
-  techRef.value.forEach(section => {
-    observer.observe(section)
-  })
-})
-
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+      else entry.target.classList.remove("show");
+    });
+  }, options);
+  techRef.value.forEach((section) => {
+    observer.observe(section);
+  });
+});
 
 const techStack = [
   {
-    class: 'i-bxl:typescript',
-    label: 'Typescript'
+    class: "i-bxl:typescript",
+    label: "Typescript",
   },
   {
-    class: 'i-bxl:tailwind-css',
-    label: 'Tailwind CSS'
-  }, 
-{
-    class: 'i-file-icons:nestjs',
-    label: 'Nest JS'
+    class: "i-bxl:tailwind-css",
+    label: "Tailwind CSS",
   },
   {
-    class: 'i-akar-icons:node-fill',
-    label: 'Node JS'
+    class: "i-file-icons:nestjs",
+    label: "Nest JS",
   },
   {
-    class: 'i-simple-icons:mongodb',
-    label: 'MongoDB'
+    class: "i-akar-icons:node-fill",
+    label: "Node JS",
   },
   {
-    class: 'i-akar-icons:react-fill',
-    label: 'React'
+    class: "i-simple-icons:mongodb",
+    label: "MongoDB",
   },
   {
-    class: 'i-file-icons:jest',
-    label: 'Jest'
+    class: "i-akar-icons:react-fill",
+    label: "React",
   },
   {
-    class: 'i-simple-icons:testinglibrary',
-    label: 'RTL'
+    class: "i-file-icons:jest",
+    label: "Jest",
   },
   {
-    class: 'i-akar-icons:vue-fill',
-    label: 'Vue 3'
+    class: "i-simple-icons:testinglibrary",
+    label: "RTL",
   },
   {
-    class: 'i-mdi:nuxt',
-    label: 'Nuxt'
+    class: "i-akar-icons:vue-fill",
+    label: "Vue 3",
   },
   {
-    class: 'i-akar-icons:nextjs-fill',
-    label: 'Next.js'
+    class: "i-mdi:nuxt",
+    label: "Nuxt",
   },
   {
-    class: 'i-mdi:docker',
-    label: 'Docker'
+    class: "i-akar-icons:nextjs-fill",
+    label: "Next.js",
   },
   {
-    class: 'i-mdi:google-cloud',
-    label: 'Google Cloud'
+    class: "i-mdi:docker",
+    label: "Docker",
   },
   {
-    class: 'i-mdi:aws',
-    label: 'AWS'
+    class: "i-mdi:google-cloud",
+    label: "Google Cloud",
   },
   {
-    class: 'i-simple-icons:datadog',
-    label: 'Datadog'
+    class: "i-mdi:aws",
+    label: "AWS",
   },
-]
-
+  {
+    class: "i-simple-icons:datadog",
+    label: "Datadog",
+  },
+];
 </script>
 
 <style scoped>
-.projects{
-    width: 100%;
-    display: grid;
-    justify-self: center;
-    justify-items: center;
-    align-content: center;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
+.projects {
+  width: 100%;
+  display: grid;
+  justify-self: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
 }
-.centered{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.centered{
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
   filter: blur(4px);
   translate: -40% 0;
-  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out, translate 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out,
+    translate 0.4s ease-in-out;
   animation: out 2.4s ease-in-out both;
 }
-.centered.show{
+.centered.show {
   opacity: 1;
   filter: blur(0);
   translate: 0;
 }
-.centered:hover{
+.centered:hover {
   animation: in 0.1s ease-in-out both;
 }
 
-@keyframes out{
-  from{
+@keyframes out {
+  from {
     color: var(--slider-1);
   }
-  to{
+  to {
     color: inherit;
   }
 }
 
-@keyframes in{
-  from{
+@keyframes in {
+  from {
     color: inherit;
   }
-  to{
+  to {
     color: var(--slider-1);
   }
 }
-
 </style>
