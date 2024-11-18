@@ -1,0 +1,186 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "[NG] Launch Chrome debug",
+      "url": "http://127.0.0.1:4204",
+      "sourceMaps": true,
+      "webRoot": "${workspaceFolder}/pillars-ui"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "[Next] Launch Chrome debug",
+      "url": "http://127.0.0.1:3001",
+      "sourceMaps": true,
+      "webRoot": "${workspaceFolder}/pillars-ui-v2"
+    },
+    {
+      "type": "msedge",
+      "request": "launch",
+      "name": "Launch Edge debug",
+      "url": "http://127.0.0.1:4204",
+      "sourceMaps": true,
+      "webRoot": "${workspaceFolder}/pillars-ui"
+    },
+    {
+      "name": "ATTACH TO NEXT",
+      "type": "node",
+      "request": "attach",
+      "port": 9231,
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "cwd": "${workspaceFolder}/pillars-ui-v2"
+    },
+    {
+      "name": "ATTACH TO API",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "ATTACH TO FINANCIAL CONSUMER",
+      "type": "node",
+      "request": "attach",
+      "port": 20238,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "---- ADMIN CRONJOBS -----",
+      "type": "node",
+      "request": "attach",
+      "port": 99999,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "DAILY USER GROWTH REPORT",
+      "type": "node",
+      "request": "attach",
+      "port": 20240,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "HOURLY SLOT CHECK",
+      "type": "node",
+      "request": "attach",
+      "port": 20241,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "---- ADMIN CRONJOBS -----",
+      "type": "node",
+      "request": "attach",
+      "port": 99999,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "CANCEL MEMBERSHIPS JOB",
+      "type": "node",
+      "request": "attach",
+      "port": 20242,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "SYNC REALTIME PRICES CRONJOB",
+      "type": "node",
+      "request": "attach",
+      "port": 20243,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "REALTIME PRICES DEPLOYMENT",
+      "type": "node",
+      "request": "attach",
+      "port": 20288,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "SYNC SQUARE DAILY WEBHOOKS",
+      "type": "node",
+      "request": "attach",
+      "port": 20245,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "ATTACH SCRIPT PORT:20239",
+      "type": "node",
+      "request": "attach",
+      "port": 20239,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "ATTACH SCRIPT PORT:20238",
+      "type": "node",
+      "request": "attach",
+      "port": 20238,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    },
+    {
+      "name": "ATTACH SCRIPT PORT:20244",
+      "type": "node",
+      "request": "attach",
+      "port": 20244,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceRoot}/pillars-api/dist/**/*"
+      ]
+    }
+  ]
+}

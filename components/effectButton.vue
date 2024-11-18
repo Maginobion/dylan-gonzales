@@ -1,17 +1,17 @@
 <template>
-    <button class="containerButton">
+    <button class="container">
         <slot/>
     </button>
 </template>
 
 <style scoped>
-.containerButton{
+.container{
     position: relative;
     padding: 0px;
     background-color: transparent;
 }
 
-/* .containerButton span{
+/* .container span{
     --left-down : -10%;
     --right-up: 10%;
     background-color: var(--color);
@@ -23,7 +23,7 @@
     scale: 1;
 } */
 
-.containerButton:before {
+.container:before {
   content: '';
   background-color: var(--color-secondary);
   border-radius: 50%;
@@ -37,11 +37,11 @@
   transform: scale(0.001, 0.001);
 }
 
-.containerButton:focus {
+.container:focus {
   outline: 0;
   color: #fff;
 }
-.containerButton:focus:before {
+.container:focus:before {
   -webkit-animation: Click_Effect 0.8s ease-out;
           animation: Click_Effect 0.8s ease-out;
 }
@@ -80,7 +80,7 @@
   }
 }
 
-/* .containerButton:active span{
+/* .container:active span{
     animation: appearing 0.4s linear;
 } */
 
@@ -100,30 +100,30 @@
     }
 }
 
-/* .containerButton span:nth-child(2){
+/* .container span:nth-child(2){
     top: 12%;
     right: -10%;
     translate: -250% 160%;
 }
-.containerButton span:nth-child(3){
+.container span:nth-child(3){
     top: 0%;
     left: 50%;
     translate: -50% -50%;
 }
-.containerButton span:nth-child(4){
+.container span:nth-child(4){
     top: 12%;
     right: 90%;
 }
-.containerButton span:nth-child(5){
+.container span:nth-child(5){
     bottom: 10%;
     right: -10%;
 }
-.containerButton span:nth-child(6){
+.container span:nth-child(6){
     bottom: 0%;
     left: 50%;
     translate: -50% 50%;
 }
-.containerButton span:nth-child(7){
+.container span:nth-child(7){
     bottom: 10%;
     right: 90%;
 } */

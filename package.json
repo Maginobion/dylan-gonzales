@@ -9,21 +9,30 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/image": "^1.0.0-rc.1",
-    "@nuxtjs/i18n": "^8.0.0-beta.12",
-    "@types/node": "^18",
-    "nuxt": "^3.10.3"
-  },
   "dependencies": {
-    "@iconify-json/mdi": "^1.1.52",
-    "@iconify/json": "^2.2.84",
-    "@types/nodemailer": "^6.4.8",
-    "@unocss/nuxt": "^0.53.4",
-    "@unocss/preset-icons": "^0.53.4",
-    "nodemailer": "^6.9.3",
-    "unocss": "^0.53.4",
-    "unplugin-icons": "^0.16.3"
+    "@iconify-json/fluent": "^1.2.7",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/i18n": "9.0.0",
+    "@types/nodemailer": "^6.4.16",
+    "nodemailer": "^6.9.16",
+    "nuxt": "^3.14.159",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+  "devDependencies": {
+    "@iconify-json/akar-icons": "^1.2.1",
+    "@iconify-json/ant-design": "^1.2.2",
+    "@iconify-json/bxl": "^1.2.1",
+    "@iconify-json/charm": "^1.2.1",
+    "@iconify-json/cib": "^1.2.1",
+    "@iconify-json/clarity": "^1.2.1",
+    "@iconify-json/eva": "^1.2.0",
+    "@iconify-json/file-icons": "^1.2.0",
+    "@iconify-json/mdi": "^1.2.1",
+    "@iconify-json/simple-icons": "^1.2.11",
+    "@unocss/nuxt": "^0.64.0",
+    "@unocss/preset-icons": "^0.64.0",
+    "unocss": "^0.64.0"
   }
 }
