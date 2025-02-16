@@ -9,28 +9,24 @@
   <nav :class="{ activeSideNav: isOpen }" class="sideNav">
     <ul class="navList">
       <li>
-        <NuxtLinkLocale to="/" :data-label="$t(`menu[0]`)" v-t="'menu[0]'" />
+        <NuxtLinkLocale to="/" :data-label="menuValues(0)">
+          {{ menuValues(0) }}
+        </NuxtLinkLocale>
       </li>
       <li>
-        <NuxtLinkLocale
-          to="/about"
-          :data-label="$t(`menu[1]`)"
-          v-t="'menu[1]'"
-        />
+        <NuxtLinkLocale to="/about" :data-label="menuValues(1)">
+          {{ menuValues(1) }}
+        </NuxtLinkLocale>
       </li>
       <li>
-        <NuxtLinkLocale
-          to="/projects"
-          :data-label="$t(`menu[2]`)"
-          v-t="'menu[2]'"
-        />
+        <NuxtLinkLocale to="/projects" :data-label="menuValues(2)">
+          {{ menuValues(2) }}
+        </NuxtLinkLocale>
       </li>
       <li>
-        <NuxtLinkLocale
-          to="/contact"
-          :data-label="$t(`menu[3]`)"
-          v-t="'menu[3]'"
-        />
+        <NuxtLinkLocale to="/contact" :data-label="menuValues(3)">
+          {{ menuValues(3) }}
+        </NuxtLinkLocale>
       </li>
     </ul>
     <div class="exitCont">
@@ -48,6 +44,8 @@
 
 <script setup>
 const isOpen = ref(false);
+const { rt, tm } = useI18n();
+const menuValues = (code) => rt(tm("menu")[code]);
 </script>
 
 <style scoped>
