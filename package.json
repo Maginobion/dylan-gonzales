@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@iconify-json/fluent": "^1.2.7",
-    "@nuxt/image": "^1.8.1",
-    "@nuxtjs/i18n": "9.0.0",
-    "@types/nodemailer": "^6.4.16",
-    "nodemailer": "^6.9.16",
-    "nuxt": "^3.14.159",
+    "@nuxt/image": "^1.9.0",
+    "@nuxtjs/i18n": "9.2.0",
+    "@types/nodemailer": "^6.4.17",
+    "nodemailer": "^6.10.0",
+    "nuxt": "^3.15.4",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -31,8 +31,8 @@
     "@iconify-json/file-icons": "^1.2.0",
     "@iconify-json/mdi": "^1.2.1",
     "@iconify-json/simple-icons": "^1.2.11",
-    "@unocss/nuxt": "^0.64.0",
-    "@unocss/preset-icons": "^0.64.0",
-    "unocss": "^0.64.0"
+    "@unocss/nuxt": "^65.5.0",
+    "@unocss/preset-icons": "^65.5.0",
+    "unocss": "^65.5.0"
   }
 }

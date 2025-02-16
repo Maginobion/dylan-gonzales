@@ -13,25 +13,6 @@
 </template>
 
 <script setup lang="ts">
-const techRef = ref([]);
-
-onMounted(async () => {
-  await nextTick();
-
-  const options = {
-    threshold: 0.4,
-  };
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
-      else entry.target.classList.remove("show");
-    });
-  }, options);
-  techRef.value.forEach((section) => {
-    observer.observe(section);
-  });
-});
-
 const techStack = [
   {
     class: "i-bxl:typescript",
@@ -94,6 +75,25 @@ const techStack = [
     label: "Datadog",
   },
 ];
+
+const techRef = ref([]);
+
+onMounted(async () => {
+  await nextTick();
+
+  const options = {
+    threshold: 0.4,
+  };
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+      else entry.target.classList.remove("show");
+    });
+  }, options);
+  techRef.value.forEach((section) => {
+    observer.observe(section);
+  });
+});
 </script>
 
 <style scoped>

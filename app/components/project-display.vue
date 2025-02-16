@@ -41,7 +41,7 @@ const projectRef = ref([]);
 onMounted(async () => {
   await nextTick();
 
-  const options = {
+  const options: IntersectionObserverInit = {
     threshold: 0.2,
   };
   const observer = new IntersectionObserver((entries, observer) => {
