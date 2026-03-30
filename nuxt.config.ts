@@ -5,9 +5,9 @@ export default defineNuxtConfig({
       link: [
         {
           rel: "preload",
-          href: "/assets/fonts/OpenSans.ttf",
+          href: "/assets/fonts/OpenSans.woff2",
           as: "font",
-          type: "font/ttf",
+          type: "font/woff2",
           crossorigin: "anonymous",
         },
       ],
@@ -18,7 +18,10 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   devtools: { enabled: true },
-  modules: ["@nuxt/image", "@nuxtjs/i18n", "@unocss/nuxt"],
+  modules: ["@nuxt/image", "@nuxtjs/i18n", "@unocss/nuxt", "@nuxtjs/sitemap"],
+  site: {
+    url: "https://dylan-gonzales.vercel.app",
+  },
   runtimeConfig: {
     nodemaileruser: process.env.MAILTRAP_USERNAME,
     nodemailerpass: process.env.MAILTRAP_PASSWORD,
