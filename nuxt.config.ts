@@ -1,5 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        {
+          rel: "preload",
+          href: "/assets/fonts/OpenSans.ttf",
+          as: "font",
+          type: "font/ttf",
+          crossorigin: "anonymous",
+        },
+      ],
+    },
+  },
   compatibilityDate: "2025-01-01",
   future: {
     compatibilityVersion: 4,
