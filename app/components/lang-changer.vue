@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="lang-toggle">
     <input
       id="lang"
       type="checkbox"
@@ -10,12 +10,10 @@
           : router.push(switchLocalePath('en'))
       "
     />
-    <span class="selected" />
     <label for="lang">
-      <div class="bg">
-        <span>EN</span>
-        <span>ES</span>
-      </div>
+      <span class="lang-option" :class="{ active: locale === 'en' }">EN</span>
+      <span class="lang-option" :class="{ active: locale === 'es' }">ES</span>
+      <span class="slider" />
     </label>
   </div>
 </template>
@@ -27,37 +25,54 @@ const router = useRouter();
 </script>
 
 <style scoped>
+.lang-toggle {
+  position: relative;
+}
+
 #lang {
   display: none;
 }
+
 label {
   display: flex;
-  margin: 2px 8px 2px 2px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
   background-color: var(--color-primary);
-  padding: 4px 5px;
-  border-radius: 100px;
+  border-radius: 20px;
+  padding: 4px;
+  gap: 0;
+  user-select: none;
 }
-label span {
+
+.lang-option {
+  position: relative;
+  z-index: 1;
+  width: 32px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 26px;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.lang-option.active {
   color: var(--bg);
-  z-index: 2;
 }
-.bg {
-  display: flex;
-  gap: 8px;
-  z-index: 0;
-}
-.selected {
+
+.slider {
   position: absolute;
-  width: 28px;
-  height: 28px;
-  z-index: 0;
   top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 26px;
   background-color: var(--border-color);
-  border-radius: 100px;
-  translate: 3px 5px;
-  transition: translate 0.4s ease-in-out;
+  border-radius: 16px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-#lang:checked + .selected {
-  translate: 30px 5px;
+
+#lang:checked + label .slider {
+  transform: translateX(32px);
 }
 </style>

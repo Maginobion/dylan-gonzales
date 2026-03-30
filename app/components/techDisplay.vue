@@ -1,10 +1,9 @@
 <template>
-  <div class="projects">
+  <div class="projects" ref="revealContainer">
     <div
       class="centered"
       v-for="tech in techStack"
       :key="tech.label"
-      ref="techRef"
     >
       <div :class="tech.class + ' text-4xl icon'" />
       <p>{{ tech.label }}</p>
@@ -74,26 +73,21 @@ const techStack = [
     class: "i-simple-icons:datadog",
     label: "Datadog",
   },
+  {
+    class: "i-simple-icons:stripe",
+    label: "Stripe",
+  },
+  {
+    class: "i-simple-icons:openai",
+    label: "OpenAI",
+  },
+  {
+    class: "i-simple-icons:pnpm",
+    label: "pnpm",
+  },
 ];
 
-const techRef = ref([]);
-
-onMounted(async () => {
-  await nextTick();
-
-  const options = {
-    threshold: 0.4,
-  };
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add("show");
-      else entry.target.classList.remove("show");
-    });
-  }, options);
-  techRef.value.forEach((section) => {
-    observer.observe(section);
-  });
-});
+useScrollReveal('.centered', 0.4);
 </script>
 
 <style scoped>

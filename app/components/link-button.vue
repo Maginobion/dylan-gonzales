@@ -5,6 +5,11 @@
             {{content}}
         </button>
     </NuxtLink>
+    <button v-else-if="content" class="blocked" disabled>
+        <div class="i-fluent:lock-closed-16-regular text-2xl"/>
+        {{ content }}
+        <span class="private-badge">Private</span>
+    </button>
 </template>
 
 <script setup lang="ts">
@@ -30,7 +35,18 @@
     a{
         text-decoration: none;
     }
-    button:hover{
+    button:hover:not(.blocked){
         background-color: var(--button-hover);
+    }
+    button.blocked{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    .private-badge{
+        font-size: 0.7em;
+        padding: 1px 6px;
+        border-radius: 3px;
+        border: 1px solid var(--color);
+        opacity: 0.7;
     }
 </style>

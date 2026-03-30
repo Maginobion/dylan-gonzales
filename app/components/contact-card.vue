@@ -1,185 +1,60 @@
 <template>
-  <form>
-    <div class="container">
-      <div class="inputBlock">
+  <form @submit.prevent="send">
+    <div class="form-grid">
+      <div class="input-group">
         <input
-          type="text"
-          :placeholder="$t(`contactName`)"
-          name="name"
           id="name"
-          v-model="name"
-        />
-        <label for="name" v-t="'contactName'" />
-      </div>
-      <div class="inputBlock">
-        <input
           type="text"
-          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
-          name="mail"
-          :placeholder="$t(`contactEmail`)"
-          id="mail"
-          v-model="email"
+          name="name"
+          v-model="name"
+          placeholder=" "
         />
-        <label for="mail" v-t="'contactEmail'" />
+        <label for="name">{{ $t("contactName") }}</label>
       </div>
-      <div class="inputBlock">
+      <div class="input-group">
         <input
+          id="mail"
+          type="text"
+          name="mail"
+          pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z0-9]{2,}"
+          v-model="email"
+          placeholder=" "
+        />
+        <label for="mail">{{ $t("contactEmail") }}</label>
+      </div>
+      <div class="input-group full-width">
+        <input
+          id="subject"
           type="text"
           name="subject"
-          :placeholder="$t(`contactSubject`)"
-          id="subject"
           v-model="subject"
+          placeholder=" "
         />
-        <label for="subject" v-t="'contactSubject'" />
+        <label for="subject">{{ $t("contactSubject") }}</label>
       </div>
-      <div class="inputBlock">
+      <div class="input-group full-width">
         <textarea
-          type="text"
-          name="message"
-          :placeholder="$t(`contactMessage`)"
           id="message"
+          name="message"
           v-model="message"
+          rows="5"
+          placeholder=" "
         />
-        <label for="message" v-t="'contactMessage'" />
-      </div>
-      <button @click.prevent="send" v-t="'contactButton'" />
-      <div class="status">
-        <ul>
-          <li class="errors" v-for="error in status" :key="error">
-            {{ error }}
-          </li>
-          <li v-if="success" class="success">{{ success }}</li>
-        </ul>
+        <label for="message">{{ $t("contactMessage") }}</label>
       </div>
     </div>
+
+    <div v-if="status.length || success" class="feedback">
+      <p v-for="error in status" :key="error" class="error-msg">{{ error }}</p>
+      <p v-if="success" class="success-msg">{{ success }}</p>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span>{{ $t("contactButton") }}</span>
+      <div class="i-mdi:send text-lg" />
+    </button>
   </form>
 </template>
-
-<style scoped>
-form {
-  padding: 2rem 8rem;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  gap: 2.5rem;
-}
-
-label {
-  position: absolute;
-  top: 0;
-  transition: 0.2s all ease-in-out;
-}
-
-.inputBlock input,
-.inputBlock textarea {
-  position: relative;
-  width: 100%;
-  padding: 4px 10px;
-  z-index: 1;
-  resize: none;
-}
-
-.inputBlock {
-  position: relative;
-}
-.inputBlock:focus-within input:placeholder-shown + label,
-.inputBlock:focus-within textarea:placeholder-shown + label {
-  color: var(--bg);
-  background-color: var(--error-color);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  padding: 2px 6px;
-  translate: 0 -26px;
-}
-
-input:not(:placeholder-shown):valid + label,
-textarea:not(:placeholder-shown):valid + label {
-  color: var(--bg);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  padding: 2px 7px;
-  translate: 0 -26px;
-  background-color: var(--color-primary);
-}
-
-input:not(:placeholder-shown):valid + label::after,
-textarea:not(:placeholder-shown):valid + label::after {
-  transition: all 1s ease-in-out;
-  content: "✓";
-  font-size: calc(1em - 1px);
-  margin: 0 1px 0 10px;
-}
-
-input:not(:placeholder-shown):invalid + label,
-textarea:not(:placeholder-shown):invalid + label {
-  color: var(--bg);
-  background-color: var(--error-color);
-  border-radius: 4px;
-  font-size: 0.9rem;
-  padding: 2px 6px;
-  translate: 0 -26px;
-}
-
-input::placeholder,
-textarea::placeholder {
-  --translating: 0 0;
-  position: absolute;
-  transition: 0.4s all ease-in-out;
-  translate: var(--translating);
-}
-
-.inputBlock:focus-within input::placeholder,
-.inputBlock:focus-within textarea::placeholder {
-  --translating: 0 -26px;
-  animation-name: hide;
-  animation-duration: 1s;
-  animation-direction: alternate;
-}
-
-button {
-  width: min-content;
-  padding: 6px 18px;
-  margin: auto;
-  color: var(--color);
-  background-color: var(--color-primary);
-  border: 0;
-  border-radius: 2px;
-}
-
-textarea {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.errors {
-  color: var(--error-color);
-}
-.success {
-  color: var(--success-color);
-}
-
-@keyframes hide {
-  0% {
-    --translating: 0 0;
-  }
-  99% {
-    --translating: 0 -26px;
-  }
-  100% {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  form {
-    padding: 2rem 0;
-  }
-  .container {
-    padding: 0;
-  }
-}
-</style>
 
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
@@ -193,19 +68,7 @@ const success = ref("");
 
 const { t, locale } = useI18n();
 
-watch(locale, () => {
-  status.value = [];
-});
-watch(name, () => {
-  status.value = [];
-});
-watch(email, () => {
-  status.value = [];
-});
-watch(subject, () => {
-  status.value = [];
-});
-watch(message, () => {
+watch([locale, name, email, subject, message], () => {
   status.value = [];
 });
 
@@ -214,6 +77,7 @@ const emailRegex = new RegExp(regexString, "g");
 
 const send = async (): Promise<void> => {
   status.value = [];
+  success.value = "";
   if (name.value === "") status.value.push(t("nameEmpty"));
   if (email.value === "") status.value.push(t("emailEmpty"));
   else if (!emailRegex.test(email.value)) status.value.push(t("emailError"));
@@ -237,3 +101,133 @@ const send = async (): Promise<void> => {
   }
 };
 </script>
+
+<style scoped>
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* ── Floating label inputs ── */
+.input-group {
+  position: relative;
+}
+
+.input-group input,
+.input-group textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color);
+  background: transparent;
+  border: 1px solid rgba(21, 136, 118, 0.25);
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--color-primary);
+}
+
+.input-group label {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 15px;
+  color: var(--color);
+  opacity: 0.5;
+  pointer-events: none;
+  background: var(--bg);
+  padding: 0 4px;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 12px;
+  font-size: 12px;
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+/* Validation states */
+.input-group input:not(:placeholder-shown):invalid + label {
+  color: var(--error-color);
+}
+
+.input-group input:not(:placeholder-shown):invalid {
+  border-color: var(--error-color);
+}
+
+/* ── Submit button ── */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  align-self: center;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bg);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Feedback messages ── */
+.feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.error-msg {
+  color: var(--error-color);
+  font-size: 14px;
+  margin: 0;
+}
+
+.success-msg {
+  color: var(--success-color);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 500px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

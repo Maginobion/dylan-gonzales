@@ -12,10 +12,10 @@
           />
           <p class="ml-4">Fullstack Developer</p>
         </div>
-        <p class="mt-4" v-t="'description'"></p>
+        <p class="mt-4">{{ $t('description') }}</p>
         <a class="downloadButton" :href="url" download>
           <div class="i-ant-design:cloud-download-outlined text-3xl" />
-          <span v-t="'download'" />
+          <span>{{ $t('download') }}</span>
         </a>
       </div>
       <div class="profile">
@@ -42,17 +42,17 @@
       </div>
     </section>
     <section>
-      <h4 class="headTitle" v-t="'techSubtitle'" />
+      <h4 class="headTitle">{{ $t('techSubtitle') }}</h4>
       <TechDisplay />
     </section>
     <section>
-      <h4 class="headTitle" v-t="'projectSubtitle'" />
+      <h4 class="headTitle">{{ $t('projectSubtitle') }}</h4>
       <div class="projectFlex">
         <ProjectDisplay />
       </div>
     </section>
     <div class="nuxtlogo">
-      <span v-t="'madeWith'" />
+      <span>{{ $t('madeWith') }}</span>
       <a href="https://v3.nuxtjs.org/" class="linkCont">
         <span>Nuxt 3</span>
         <img
