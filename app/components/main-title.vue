@@ -63,7 +63,7 @@ const randomColor = () =>{
         >
             {{letter}}
         </span>
-        <p v-t="'introduction'"/>
+        <p>{{ $t('introduction') }}</p>
     </div>
 </template>
 

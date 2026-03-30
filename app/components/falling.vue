@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        <p v-t="'developWith'"/>
+        <p>{{ $t('developWith') }}</p>
         <div class="words">
             <span v-for="tech of stack" :key="tech">{{tech}}</span>
         </div>
