@@ -10,7 +10,7 @@
 useHead({
     title: 'Projects',
     meta: [
-        { name: 'Projects', content: 'My amazing projects.' }
+        { name: 'description', content: 'Projects by Dylan Gonzales — React, Vue, Next.js, and more. From fintech platforms to IoT dashboards.' },
     ],
 })
 </script>

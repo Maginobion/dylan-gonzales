@@ -62,6 +62,7 @@ a {
 @font-face {
   font-family: "OpenSans";
   src: local("Open Sans"), local("OpenSans"), local("Open-Sans"),
+    url("/assets/fonts/OpenSans.woff2") format("woff2"),
     url("/assets/fonts/OpenSans.ttf") format("truetype");
   font-display: block;
 }

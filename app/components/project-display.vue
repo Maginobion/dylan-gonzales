@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="imageSide">
-        <nuxt-img :src="item.img" :alt="item.alt" class="image" />
+        <nuxt-img :src="item.img" :alt="item.alt" class="image" loading="lazy" />
       </div>
     </div>
   </article>

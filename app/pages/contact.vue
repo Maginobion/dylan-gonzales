@@ -18,7 +18,13 @@
 <script setup>
 useHead({
   title: "Contact",
-  meta: [{ name: "Contact", content: "My contact information." }],
+  meta: [
+    {
+      name: "description",
+      content:
+        "Get in touch with Dylan Gonzales — Fullstack Developer available for projects and collaboration.",
+    },
+  ],
 });
 </script>
 
