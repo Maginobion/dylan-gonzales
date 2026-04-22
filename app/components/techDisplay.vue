@@ -1,10 +1,6 @@
 <template>
   <div class="projects" ref="revealContainer">
-    <div
-      class="centered"
-      v-for="tech in techStack"
-      :key="tech.label"
-    >
+    <div class="centered" v-for="tech in techStack" :key="tech.label">
       <div :class="tech.class + ' text-4xl icon'" />
       <p>{{ tech.label }}</p>
     </div>
@@ -18,32 +14,36 @@ const techStack = [
     label: "Typescript",
   },
   {
-    class: "i-bxl:tailwind-css",
-    label: "Tailwind CSS",
+    class: "i-akar-icons:react-fill",
+    label: "React",
   },
   {
     class: "i-file-icons:nestjs",
     label: "Nest JS",
   },
   {
+    class: "i-simple-icons:claude",
+    label: "Claude Code",
+  },
+  {
+    class: "i-game-icons:crab-claw",
+    label: "OpenClaw",
+  },
+  {
+    class: "i-bxl:tailwind-css",
+    label: "Tailwind CSS",
+  },
+  {
     class: "i-akar-icons:node-fill",
     label: "Node JS",
   },
   {
-    class: "i-simple-icons:mongodb",
-    label: "MongoDB",
-  },
-  {
-    class: "i-akar-icons:react-fill",
-    label: "React",
+    class: "i-akar-icons:nextjs-fill",
+    label: "Next.js",
   },
   {
     class: "i-file-icons:jest",
     label: "Jest",
-  },
-  {
-    class: "i-simple-icons:testinglibrary",
-    label: "RTL",
   },
   {
     class: "i-akar-icons:vue-fill",
@@ -52,10 +52,6 @@ const techStack = [
   {
     class: "i-mdi:nuxt",
     label: "Nuxt",
-  },
-  {
-    class: "i-akar-icons:nextjs-fill",
-    label: "Next.js",
   },
   {
     class: "i-mdi:docker",
@@ -87,7 +83,7 @@ const techStack = [
   },
 ];
 
-useScrollReveal('.centered', 0.4);
+useScrollReveal(".centered", 0.4);
 </script>
 
 <style scoped>
