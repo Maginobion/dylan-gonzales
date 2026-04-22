@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <section class="hero">
       <div class="hero-content">
         <div class="hero-text">
@@ -69,17 +69,6 @@
         <ProjectDisplay />
       </div>
     </section>
-    <div class="nuxtlogo">
-      <span>{{ $t("madeWith") }}</span>
-      <a href="https://v3.nuxtjs.org/" class="linkCont">
-        <span>Nuxt 3</span>
-        <img
-          class="nuxt-icon"
-          alt="Nuxt Framework Icon"
-          style="height: 20px; width: 20px"
-        />
-      </a>
-    </div>
   </div>
 </template>
 
@@ -106,6 +95,10 @@ const url = computed(() =>
 </script>
 
 <style scoped>
+.page {
+  padding-bottom: 80px;
+}
+
 /* ── Hero section ── */
 .hero {
   padding: 40px 24px 60px;
@@ -242,26 +235,6 @@ p {
   color: var(--color);
 }
 
-.nuxt-icon {
-  content: var(--source);
-  transition: 1s all;
-}
-
-.nuxtlogo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 32px 0 16px 0;
-  gap: 4px;
-}
-
-.linkCont {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #00c58e;
-}
-
 a {
   text-decoration: none;
 }
@@ -286,6 +259,14 @@ section {
 
 /* ── Responsive ── */
 @media screen and (max-width: 800px) {
+  .page {
+    padding-bottom: 56px;
+  }
+
+  .hero {
+    padding-top: 72px;
+  }
+
   .hero-content {
     flex-direction: column-reverse;
     gap: 32px;
@@ -308,8 +289,12 @@ section {
 }
 
 @media screen and (max-width: 500px) {
+  .page {
+    padding-bottom: 40px;
+  }
+
   .hero {
-    padding: 20px 16px 40px;
+    padding: 64px 16px 40px;
   }
 
   .photo-ring {

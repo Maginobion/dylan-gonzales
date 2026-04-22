@@ -11,7 +11,6 @@
   "falabellaDesc": "Plataforma logística serverless para tiendas Falabella construida sobre Google Cloud. Gestión de flujos de transporte de productos con microservicios cloud-native e integraciones on-premise.",
   "zeiaDesc": "Dashboard IoT para el monitoreo de calidad del aire en tiempo real. Integración de modelos de ML para predecir las condiciones del día siguiente y alertas automáticas por correo al superar umbrales.",
   "pokemonDesc": "Página sencilla que permite listar, buscar, agregar, eliminar y editar pokemones varios. Datos enlazados con una API que maneja la base de datos.",
-  "madeWith": "Hecho con",
   "aboutMe": "Acerca de mí",
   "aboutMeFirst": "Soy un desarrollador full-stack que reside en Perú. Tengo una pasión latente por lograr una exquisita interactividad con el usuario en el entorno web.",
   "aboutMeSecond": "Proactivo, con ganas de destruir el molde y probar cosas nuevas. Un fanático de la cultura asiática, la vida hogareña y la tecnología.",
