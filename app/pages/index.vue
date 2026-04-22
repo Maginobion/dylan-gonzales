@@ -100,8 +100,8 @@ useHead({
 
 const url = computed(() =>
   locale.value === "en"
-    ? "/[English]DylanGonzalesResume.pdf"
-    : "/[Spanish]DylanGonzalesCV.pdf"
+    ? "/[English] Dylan Gonzales Resume.pdf"
+    : "/[Spanish] Dylan Gonzales CV.pdf"
 );
 </script>
 
